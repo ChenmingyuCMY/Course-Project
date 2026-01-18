@@ -1,0 +1,4 @@
+C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/CMakeFiles/2DGame.dir
+C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/CMakeFiles/edit_cache.dir
+C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/CMakeFiles/rebuild_cache.dir
+C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/CMakeFiles/2DGame_autogen.dir
