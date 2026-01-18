@@ -5,6 +5,8 @@
 #include <QApplication>
 #include <QStackedWidget>
 #include "StartScreen.h"
+#include "MapScreen.h"
+#include "BossScene.h"
 
 class GameWindow : public QMainWindow
 {
@@ -19,12 +21,15 @@ public slots:
     void showSettings();
     void quitGame();
     void backToMenu();
+    void showGameLevel(int level);
+    void showBossBattle(int level);
     
 private:
     void setupUI();
     
     QStackedWidget *stackedWidget;
     StartScreen *startScreen;
+    MapScreen *mapScreen;
     QWidget *gameScreen;
 };
 

@@ -29,12 +29,16 @@ set(SOURCES
     src/GameWindow.cpp
     src/StartScreen.cpp
     src/GameRenderer.cpp
+    src/MapScreen.cpp
+    src/BossScene.cpp
 )
 
 set(HEADERS
     src/GameWindow.h
     src/StartScreen.h
     src/GameRenderer.h
+    src/MapScreen.h
+    src/BossScene.h
 )
 
 # 添加可执行文件

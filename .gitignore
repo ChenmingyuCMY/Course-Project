@@ -1,7 +1,4 @@
 # Qt/C++ Computer Graphics Course Project .gitignore
 
 # === Build Outputs ===
-build/           # 你的 CMake 构建目录
-*.exe           # 可执行文件
-*.obj           # 对象文件
-*.pdb           # 调试数据库
+build/           # CMake 构建目录
