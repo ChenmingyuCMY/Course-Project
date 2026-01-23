@@ -360,15 +360,21 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/BaseRenderer.h",
+			"MU",
+			"UVLADIE3JM/moc_BaseRenderer.cpp",
+			null
+		],
+		[
 			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/BossScene.h",
 			"MU",
 			"UVLADIE3JM/moc_BossScene.cpp",
 			null
 		],
 		[
-			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameRenderer.h",
+			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameScreen.h",
 			"MU",
-			"UVLADIE3JM/moc_GameRenderer.cpp",
+			"UVLADIE3JM/moc_GameScreen.cpp",
 			null
 		],
 		[
@@ -381,6 +387,12 @@
 			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/MapScreen.h",
 			"MU",
 			"UVLADIE3JM/moc_MapScreen.cpp",
+			null
+		],
+		[
+			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/ShaderManager.h",
+			"MU",
+			"UVLADIE3JM/moc_ShaderManager.cpp",
 			null
 		],
 		[
@@ -467,12 +479,17 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/BaseRenderer.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/BossScene.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameRenderer.cpp",
+			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameScreen.cpp",
 			"MU",
 			null
 		],
@@ -483,6 +500,11 @@
 		],
 		[
 			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/MapScreen.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/ShaderManager.cpp",
 			"MU",
 			null
 		],

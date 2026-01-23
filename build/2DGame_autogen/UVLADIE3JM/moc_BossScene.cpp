@@ -61,7 +61,7 @@ template <> constexpr inline auto BossScene::qt_create_metaobjectdata<qt_meta_ta
             qt_methods, qt_properties, qt_enums);
 }
 Q_CONSTINIT const QMetaObject BossScene::staticMetaObject = { {
-    QMetaObject::SuperData::link<QOpenGLWidget::staticMetaObject>(),
+    QMetaObject::SuperData::link<BaseRenderer::staticMetaObject>(),
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9BossSceneE_t>.stringdata,
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9BossSceneE_t>.data,
     qt_static_metacall,
@@ -99,14 +99,12 @@ void *BossScene::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9BossSceneE_t>.strings))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "QOpenGLFunctions"))
-        return static_cast< QOpenGLFunctions*>(this);
-    return QOpenGLWidget::qt_metacast(_clname);
+    return BaseRenderer::qt_metacast(_clname);
 }
 
 int BossScene::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QOpenGLWidget::qt_metacall(_c, _id, _a);
+    _id = BaseRenderer::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

@@ -1,7 +1,7 @@
 CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj: \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\mocs_compilation.cpp \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_BossScene.cpp \
- C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_BaseRenderer.cpp \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/QOpenGLWidget \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qopenglwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
@@ -410,20 +410,27 @@ CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qgenericmatrix.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLBuffer \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglbuffer.h \
- D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLTexture \
- D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopengltexture.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qscopedpointer.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLVertexArrayObject \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglvertexarrayobject.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qobject.h \
+ D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLTexture \
+ D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopengltexture.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qscopedpointer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QMatrix4x4 \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QVector3D \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QVector2D \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qbasictimer.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qeventloop.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qelapsedtimer.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QKeyEvent \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qevent.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
@@ -449,31 +456,40 @@ CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qlocale.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication_platform.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QVector3D \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QMatrix4x4 \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QVector2D \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qelapsedtimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qset.h \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QString \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qtmochelpers.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qtmocconstants.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/q20algorithm.h \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_GameRenderer.cpp \
- C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.h \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_GameWindow.cpp \
- C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMainWindow \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qmainwindow.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtabwidget.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qapplication.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_BossScene.cpp \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_GameScreen.cpp \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QStackedWidget \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qstackedwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qframe.h \
- C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QPushButton \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qpushbutton.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -481,25 +497,29 @@ CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlabel.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qpicture.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtextdocument.h \
- C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QVBoxLayout \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QGridLayout \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QVector \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qvector.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtextcursor.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtextformat.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qpen.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtextoption.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_GameWindow.cpp \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMainWindow \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qmainwindow.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qapplication.h \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.h \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QGridLayout \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QVector \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qvector.h \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.h \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_MapScreen.cpp \
  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_ShaderManager.cpp \
+ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\build\2DGame_autogen\UVLADIE3JM/moc_StartScreen.cpp \
  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.h

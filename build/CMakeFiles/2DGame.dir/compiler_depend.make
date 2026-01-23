@@ -109,24 +109,33 @@
   CMakeFiles/3.31.0/CMakeCXXCompiler.cmake \
   CMakeFiles/3.31.0/CMakeRCCompiler.cmake \
   CMakeFiles/3.31.0/CMakeSystem.cmake \
+  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.cpp \
+  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.cpp \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
-  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.cpp \
-  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.h \
+  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.cpp \
+  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.cpp \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.cpp \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.h \
+  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.cpp \
+  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.cpp \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/main.cpp \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QList \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/QString \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QVector \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
@@ -203,6 +212,7 @@
   D:/Qt/6.10.1/mingw_64/include/QtCore/qmetacontainer.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qmetatype.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qminmax.h \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qnamespace.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qnumeric.h \
@@ -256,6 +266,7 @@
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtnoop.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtpreprocessorsupport.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtresource.h \
+  D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qttranslation.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qttypetraits.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtversion.h \
@@ -343,6 +354,7 @@
   D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
   D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication \
   D:/Qt/6.10.1/mingw_64/include/QtWidgets/QGridLayout \
+  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
   D:/Qt/6.10.1/mingw_64/include/QtWidgets/QLabel \
   D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMainWindow \
   D:/Qt/6.10.1/mingw_64/include/QtWidgets/QPushButton \
@@ -893,10 +905,6 @@ C:/Program\ Files/CMake/share/cmake-3.31/Modules/Compiler/HP-CXX-DetermineCompil
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h:
 
-D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_list.h:
-
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake:
-
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h:
 
 C:/Program\ Files/CMake/share/cmake-3.31/Modules/CMakeParseImplicitIncludeInfo.cmake:
@@ -967,8 +975,6 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfig.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake:
 
-C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.cpp:
-
 D:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h:
 
 C:/Program\ Files/CMake/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake:
@@ -1006,10 +1012,6 @@ C:/Program\ Files/CMake/share/cmake-3.31/Modules/Compiler/Intel-DetermineCompile
 D:/Qt/6.10.1/mingw_64/include/QtCore/qutf8stringview.h:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiAdditionalTargetInfo.cmake:
-
-D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h:
-
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets.cmake:
 
 C:/Program\ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake:
 
@@ -1125,9 +1127,9 @@ C:/Program\ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId
 
 D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglcontext_platform.h:
 
-D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h:
-
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsConfigVersionImpl.cmake:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h:
 
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h:
 
@@ -1142,10 +1144,6 @@ D:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/stdio.h:
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h:
 
 C:/Program\ Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:
-
-D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator:
-
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets-relwithdebinfo.cmake:
 
 C:/Program\ Files/CMake/share/cmake-3.31/Modules/Internal/FeatureTesting.cmake:
 
@@ -1223,15 +1221,21 @@ CMakeFiles/3.31.0/CMakeRCCompiler.cmake:
 
 CMakeFiles/3.31.0/CMakeSystem.cmake:
 
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.cpp:
+
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h:
+
 D:/Qt/6.10.1/mingw_64/include/QtCore/qcontainerinfo.h:
 
 C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.cpp:
 
 C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h:
 
-D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget:
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.cpp:
 
-C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.h:
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.h:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake:
 
 D:/Qt/6.10.1/mingw_64/include/QtGui/qbitmap.h:
 
@@ -1251,6 +1255,12 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.h:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake:
 
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.cpp:
+
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h:
+
+D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h:
+
 C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.h:
 
 D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h:
@@ -1269,13 +1279,33 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake:
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/QList:
 
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/QMap:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex:
+
 D:/Qt/6.10.1/mingw_64/include/QtCore/QObject:
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/QRect:
 
+D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
+
+D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlabel.h:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/QSet:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer:
+
 D:/Qt/6.10.1/mingw_64/include/QtCore/QSize:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/QString:
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer:
 
@@ -1451,6 +1481,8 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake:
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h:
 
+D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h:
+
 D:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h:
 
 D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglshaderprogram.h:
@@ -1527,8 +1559,6 @@ D:/Qt/6.10.1/mingw_64/include/QtCore/qstringconverter.h:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake:
 
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake:
-
 D:/Qt/6.10.1/mingw_64/include/QtCore/qstringconverter_base.h:
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/qstringfwd.h:
@@ -1580,6 +1610,8 @@ D:/Qt/6.10.1/mingw_64/include/QtCore/qtformat_impl.h:
 D:/Qt/6.10.1/mingw_64/include/QtCore/qtmetamacros.h:
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/qtnoop.h:
+
+D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h:
 
 D:/Qt/6.10.1/mingw_64/include/QtCore/qttranslation.h:
 
@@ -1733,6 +1765,10 @@ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication:
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/QGridLayout:
 
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake:
+
+D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout:
+
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/QLabel:
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/QPushButton:
@@ -1742,6 +1778,8 @@ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QStackedWidget:
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno:
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/QVBoxLayout:
+
+D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget:
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/qabstractbutton.h:
 
@@ -1753,15 +1791,7 @@ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/move
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h:
 
-D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar:
-
-D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlabel.h:
-
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:
-
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayout.h:
-
-D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h:
 
 D:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h:
 
@@ -1817,8 +1847,6 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake:
 
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake:
-
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfig.cmake:
@@ -1831,9 +1859,9 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:
 
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
-
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
 
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h:
 
@@ -1873,8 +1901,6 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginConfig.cmake:
 
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QGifPluginTargets-relwithdebinfo.cmake:
-
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_pair.h:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake:
@@ -1891,13 +1917,9 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake:
 
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets-relwithdebinfo.cmake:
-
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginAdditionalTargetInfo.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginConfig.cmake:
-
-D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets-relwithdebinfo.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginAdditionalTargetInfo.cmake:
 
@@ -1937,6 +1959,14 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLVersionlessAliasTargets.cmake
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsDependencies.cmake:
 
+D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets-relwithdebinfo.cmake:
+
+D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets.cmake:
+
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsVersionlessAliasTargets.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake:
@@ -1948,6 +1978,12 @@ D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cm
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake:
 
 D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake:
+
+D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_list.h:
+
+D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake:
 
 D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h:
 

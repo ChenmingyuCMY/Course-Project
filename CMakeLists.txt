@@ -26,18 +26,22 @@ set(CMAKE_AUTORCC ON)
 # 设置源文件
 set(SOURCES
     src/main.cpp
+    src/BaseRenderer.cpp
+    src/ShaderManager.cpp
     src/GameWindow.cpp
     src/StartScreen.cpp
-    src/GameRenderer.cpp
     src/MapScreen.cpp
+    src/GameScreen.cpp
     src/BossScene.cpp
 )
 
 set(HEADERS
+    src/BaseRenderer.h
+    src/ShaderManager.h
     src/GameWindow.h
     src/StartScreen.h
-    src/GameRenderer.h
     src/MapScreen.h
+    src/GameScreen.h
     src/BossScene.h
 )
 

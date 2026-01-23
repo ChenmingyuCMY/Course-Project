@@ -6,7 +6,7 @@
 #include <QStackedWidget>
 #include "StartScreen.h"
 #include "MapScreen.h"
-#include "BossScene.h"
+#include "GameScreen.h"
 
 class GameWindow : public QMainWindow
 {
@@ -30,7 +30,7 @@ private:
     QStackedWidget *stackedWidget;
     StartScreen *startScreen;
     MapScreen *mapScreen;
-    QWidget *gameScreen;
+    GameScreen *gameScreen;
 };
 
 #endif // GAMEWINDOW_H

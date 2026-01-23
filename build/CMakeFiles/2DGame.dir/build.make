@@ -108,11 +108,41 @@ CMakeFiles/2DGame.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/main.cpp.s"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\main.cpp" -o CMakeFiles\2DGame.dir\src\main.cpp.s
 
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj: CMakeFiles/2DGame.dir/flags.make
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.cpp
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj -MF CMakeFiles\2DGame.dir\src\BaseRenderer.cpp.obj.d -o CMakeFiles\2DGame.dir\src\BaseRenderer.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\BaseRenderer.cpp"
+
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.i"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\BaseRenderer.cpp" > CMakeFiles\2DGame.dir\src\BaseRenderer.cpp.i
+
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.s"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\BaseRenderer.cpp" -o CMakeFiles\2DGame.dir\src\BaseRenderer.cpp.s
+
+CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj: CMakeFiles/2DGame.dir/flags.make
+CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
+CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.cpp
+CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj -MF CMakeFiles\2DGame.dir\src\ShaderManager.cpp.obj.d -o CMakeFiles\2DGame.dir\src\ShaderManager.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\ShaderManager.cpp"
+
+CMakeFiles/2DGame.dir/src/ShaderManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2DGame.dir/src/ShaderManager.cpp.i"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\ShaderManager.cpp" > CMakeFiles\2DGame.dir\src\ShaderManager.cpp.i
+
+CMakeFiles/2DGame.dir/src/ShaderManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/ShaderManager.cpp.s"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\ShaderManager.cpp" -o CMakeFiles\2DGame.dir\src\ShaderManager.cpp.s
+
 CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj: CMakeFiles/2DGame.dir/flags.make
 CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
 CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.cpp
 CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj -MF CMakeFiles\2DGame.dir\src\GameWindow.cpp.obj.d -o CMakeFiles\2DGame.dir\src\GameWindow.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameWindow.cpp"
 
 CMakeFiles/2DGame.dir/src/GameWindow.cpp.i: cmake_force
@@ -127,7 +157,7 @@ CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj: CMakeFiles/2DGame.dir/flags.make
 CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
 CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.cpp
 CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj -MF CMakeFiles\2DGame.dir\src\StartScreen.cpp.obj.d -o CMakeFiles\2DGame.dir\src\StartScreen.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\StartScreen.cpp"
 
 CMakeFiles/2DGame.dir/src/StartScreen.cpp.i: cmake_force
@@ -138,26 +168,11 @@ CMakeFiles/2DGame.dir/src/StartScreen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/StartScreen.cpp.s"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\StartScreen.cpp" -o CMakeFiles\2DGame.dir\src\StartScreen.cpp.s
 
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj: CMakeFiles/2DGame.dir/flags.make
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.cpp
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj"
-	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj -MF CMakeFiles\2DGame.dir\src\GameRenderer.cpp.obj.d -o CMakeFiles\2DGame.dir\src\GameRenderer.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameRenderer.cpp"
-
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2DGame.dir/src/GameRenderer.cpp.i"
-	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameRenderer.cpp" > CMakeFiles\2DGame.dir\src\GameRenderer.cpp.i
-
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/GameRenderer.cpp.s"
-	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameRenderer.cpp" -o CMakeFiles\2DGame.dir\src\GameRenderer.cpp.s
-
 CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj: CMakeFiles/2DGame.dir/flags.make
 CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
 CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.cpp
 CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj -MF CMakeFiles\2DGame.dir\src\MapScreen.cpp.obj.d -o CMakeFiles\2DGame.dir\src\MapScreen.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\MapScreen.cpp"
 
 CMakeFiles/2DGame.dir/src/MapScreen.cpp.i: cmake_force
@@ -168,11 +183,26 @@ CMakeFiles/2DGame.dir/src/MapScreen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/MapScreen.cpp.s"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\MapScreen.cpp" -o CMakeFiles\2DGame.dir\src\MapScreen.cpp.s
 
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj: CMakeFiles/2DGame.dir/flags.make
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.cpp
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj -MF CMakeFiles\2DGame.dir\src\GameScreen.cpp.obj.d -o CMakeFiles\2DGame.dir\src\GameScreen.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameScreen.cpp"
+
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/2DGame.dir/src/GameScreen.cpp.i"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameScreen.cpp" > CMakeFiles\2DGame.dir\src\GameScreen.cpp.i
+
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/2DGame.dir/src/GameScreen.cpp.s"
+	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\GameScreen.cpp" -o CMakeFiles\2DGame.dir\src\GameScreen.cpp.s
+
 CMakeFiles/2DGame.dir/src/BossScene.cpp.obj: CMakeFiles/2DGame.dir/flags.make
 CMakeFiles/2DGame.dir/src/BossScene.cpp.obj: CMakeFiles/2DGame.dir/includes_CXX.rsp
 CMakeFiles/2DGame.dir/src/BossScene.cpp.obj: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.cpp
 CMakeFiles/2DGame.dir/src/BossScene.cpp.obj: CMakeFiles/2DGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/2DGame.dir/src/BossScene.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/2DGame.dir/src/BossScene.cpp.obj"
 	D:\Qt\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/2DGame.dir/src/BossScene.cpp.obj -MF CMakeFiles\2DGame.dir\src\BossScene.cpp.obj.d -o CMakeFiles\2DGame.dir\src\BossScene.cpp.obj -c "C:\Users\chenm\Desktop\Computer Graphics\Course-Project\src\BossScene.cpp"
 
 CMakeFiles/2DGame.dir/src/BossScene.cpp.i: cmake_force
@@ -187,10 +217,12 @@ CMakeFiles/2DGame.dir/src/BossScene.cpp.s: cmake_force
 2DGame_OBJECTS = \
 "CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj" \
 "CMakeFiles/2DGame.dir/src/main.cpp.obj" \
+"CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj" \
+"CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj" \
 "CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj" \
 "CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj" \
-"CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj" \
 "CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj" \
+"CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj" \
 "CMakeFiles/2DGame.dir/src/BossScene.cpp.obj"
 
 # External object files for target 2DGame
@@ -198,10 +230,12 @@ CMakeFiles/2DGame.dir/src/BossScene.cpp.s: cmake_force
 
 2DGame.exe: CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj
 2DGame.exe: CMakeFiles/2DGame.dir/src/main.cpp.obj
+2DGame.exe: CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj
+2DGame.exe: CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj
 2DGame.exe: CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj
 2DGame.exe: CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj
-2DGame.exe: CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj
 2DGame.exe: CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj
+2DGame.exe: CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj
 2DGame.exe: CMakeFiles/2DGame.dir/src/BossScene.cpp.obj
 2DGame.exe: CMakeFiles/2DGame.dir/build.make
 2DGame.exe: D:/Qt/6.10.1/mingw_64/lib/libQt6OpenGLWidgets.a
@@ -212,7 +246,7 @@ CMakeFiles/2DGame.dir/src/BossScene.cpp.s: cmake_force
 2DGame.exe: CMakeFiles/2DGame.dir/linkLibs.rsp
 2DGame.exe: CMakeFiles/2DGame.dir/objects1.rsp
 2DGame.exe: CMakeFiles/2DGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable 2DGame.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\chenm\Desktop\Computer Graphics\Course-Project\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable 2DGame.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\2DGame.dir\link.txt --verbose=$(VERBOSE)
 	"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/shaders"
 	"C:\Program Files\CMake\bin\cmake.exe" -E copy "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/shaders/vertex_shader.glsl" "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/shaders/"

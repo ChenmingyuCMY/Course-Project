@@ -10,10 +10,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "2DGame_autogen/timestamp" "custom" "2DGame_autogen/deps"
   "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/build/2DGame_autogen/mocs_compilation.cpp" "CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.obj.d"
+  "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/BaseRenderer.cpp" "CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj.d"
   "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/BossScene.cpp" "CMakeFiles/2DGame.dir/src/BossScene.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/BossScene.cpp.obj.d"
-  "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameRenderer.cpp" "CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj.d"
+  "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameScreen.cpp" "CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj.d"
   "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/GameWindow.cpp" "CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj.d"
   "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/MapScreen.cpp" "CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/MapScreen.cpp.obj.d"
+  "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/ShaderManager.cpp" "CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj.d"
   "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/StartScreen.cpp" "CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/StartScreen.cpp.obj.d"
   "C:/Users/chenm/Desktop/Computer Graphics/Course-Project/src/main.cpp" "CMakeFiles/2DGame.dir/src/main.cpp.obj" "gcc" "CMakeFiles/2DGame.dir/src/main.cpp.obj.d"
   )

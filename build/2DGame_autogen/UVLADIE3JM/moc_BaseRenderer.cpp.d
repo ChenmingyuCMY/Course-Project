@@ -1,6 +1,5 @@
-C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UVLADIE3JM/moc_BossScene.cpp: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UVLADIE3JM/moc_BaseRenderer.cpp: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/moc_predefs.h \
-  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QList \

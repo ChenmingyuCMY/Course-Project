@@ -1,6 +1,6 @@
-CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj: \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameRenderer.cpp \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameRenderer.h \
+CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj: \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\BaseRenderer.cpp \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\BaseRenderer.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/QOpenGLWidget \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qopenglwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
@@ -413,50 +413,80 @@ CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglvertexarrayobject.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qobject.h \
+ D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLTexture \
+ D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopengltexture.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qscopedpointer.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QMatrix4x4 \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QFile \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qfile.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qfiledevice.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qiodevice.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- D:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QDebug \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qdebug.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QCoreApplication \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QVector3D \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QVector2D \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qbasictimer.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qeventloop.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qelapsedtimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QKeyEvent \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qevent.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qiodevice.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qurl.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qeventpoint.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qpointingdevice.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qinputdevice.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QList \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qlist.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qrect.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QTransform \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen_platform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qlocale.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qset.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\ShaderManager.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QString \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QDebug \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qdebug.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QOpenGLContext \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglcontext.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QImage \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qimage.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QPainter \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qpainter.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qtextoption.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qpen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QLinearGradient \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qbrush.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/random \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h \
+ D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.tcc

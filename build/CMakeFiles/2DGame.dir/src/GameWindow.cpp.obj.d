@@ -446,7 +446,12 @@ CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QTransform \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen_platform.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameScreen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\BossScene.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\BaseRenderer.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/QOpenGLWidget \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qopenglwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
@@ -471,24 +476,34 @@ CMakeFiles/2DGame.dir/src/GameWindow.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qgenericmatrix.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLBuffer \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglbuffer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLVertexArrayObject \
+ D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglvertexarrayobject.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLTexture \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopengltexture.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qscopedpointer.h \
- D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLVertexArrayObject \
- D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglvertexarrayobject.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QKeyEvent \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QVector3D \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QMatrix4x4 \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QVector3D \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QVector2D \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qelapsedtimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QKeyEvent \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qset.h \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\ShaderManager.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QString \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMessageBox \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qmessagebox.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qdialog.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameRenderer.h
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h

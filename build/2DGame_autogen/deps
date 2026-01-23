@@ -106,24 +106,33 @@
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/CMakeFiles/3.31.0/CMakeCXXCompiler.cmake \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/CMakeFiles/3.31.0/CMakeRCCompiler.cmake \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/CMakeFiles/3.31.0/CMakeSystem.cmake \
+	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.cpp \
+	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.cpp \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
-	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.cpp \
-	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameRenderer.h \
+	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.cpp \
+	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameScreen.h \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.cpp \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/GameWindow.h \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.cpp \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/MapScreen.h \
+	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.cpp \
+	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.cpp \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/StartScreen.h \
 	C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/main.cpp \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QList \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/QString \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/QVector \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
@@ -200,6 +209,7 @@
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qmetacontainer.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qmetatype.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qminmax.h \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qnamespace.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qnumeric.h \
@@ -253,6 +263,7 @@
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qtnoop.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qtpreprocessorsupport.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qtresource.h \
+	D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qttranslation.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qttypetraits.h \
 	D:/Qt/6.10.1/mingw_64/include/QtCore/qtversion.h \
@@ -340,6 +351,7 @@
 	D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
 	D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication \
 	D:/Qt/6.10.1/mingw_64/include/QtWidgets/QGridLayout \
+	D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
 	D:/Qt/6.10.1/mingw_64/include/QtWidgets/QLabel \
 	D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMainWindow \
 	D:/Qt/6.10.1/mingw_64/include/QtWidgets/QPushButton \

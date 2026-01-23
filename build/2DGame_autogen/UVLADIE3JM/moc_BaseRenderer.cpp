@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'GameRenderer.h'
+** Meta object code from reading C++ file 'BaseRenderer.h'
 **
 ** Created by: The Qt Meta Object Compiler version 69 (Qt 6.10.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../src/GameRenderer.h"
+#include "../../../src/BaseRenderer.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -16,7 +16,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'GameRenderer.h' doesn't include <QObject>."
+#error "The header file 'BaseRenderer.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 69
 #error "This file was generated using the moc from 6.10.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -31,14 +31,14 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
-struct qt_meta_tag_ZN12GameRendererE_t {};
+struct qt_meta_tag_ZN12BaseRendererE_t {};
 } // unnamed namespace
 
-template <> constexpr inline auto GameRenderer::qt_create_metaobjectdata<qt_meta_tag_ZN12GameRendererE_t>()
+template <> constexpr inline auto BaseRenderer::qt_create_metaobjectdata<qt_meta_tag_ZN12BaseRendererE_t>()
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "GameRenderer"
+        "BaseRenderer"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -47,44 +47,44 @@ template <> constexpr inline auto GameRenderer::qt_create_metaobjectdata<qt_meta
     };
     QtMocHelpers::UintData qt_enums {
     };
-    return QtMocHelpers::metaObjectData<GameRenderer, qt_meta_tag_ZN12GameRendererE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+    return QtMocHelpers::metaObjectData<BaseRenderer, qt_meta_tag_ZN12BaseRendererE_t>(QMC::MetaObjectFlag{}, qt_stringData,
             qt_methods, qt_properties, qt_enums);
 }
-Q_CONSTINIT const QMetaObject GameRenderer::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject BaseRenderer::staticMetaObject = { {
     QMetaObject::SuperData::link<QOpenGLWidget::staticMetaObject>(),
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12GameRendererE_t>.stringdata,
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12GameRendererE_t>.data,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12BaseRendererE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12BaseRendererE_t>.data,
     qt_static_metacall,
     nullptr,
-    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12GameRendererE_t>.metaTypes,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12BaseRendererE_t>.metaTypes,
     nullptr
 } };
 
-void GameRenderer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void BaseRenderer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<GameRenderer *>(_o);
+    auto *_t = static_cast<BaseRenderer *>(_o);
     (void)_t;
     (void)_c;
     (void)_id;
     (void)_a;
 }
 
-const QMetaObject *GameRenderer::metaObject() const
+const QMetaObject *BaseRenderer::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *GameRenderer::qt_metacast(const char *_clname)
+void *BaseRenderer::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12GameRendererE_t>.strings))
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12BaseRendererE_t>.strings))
         return static_cast<void*>(this);
     if (!strcmp(_clname, "QOpenGLFunctions"))
         return static_cast< QOpenGLFunctions*>(this);
     return QOpenGLWidget::qt_metacast(_clname);
 }
 
-int GameRenderer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int BaseRenderer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QOpenGLWidget::qt_metacall(_c, _id, _a);
     return _id;

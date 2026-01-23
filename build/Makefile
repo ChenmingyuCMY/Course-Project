@@ -165,6 +165,30 @@ depend:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/2DGame_autogen/mocs_compilation.cpp.s
 .PHONY : 2DGame_autogen/mocs_compilation.cpp.s
 
+src/BaseRenderer.obj: src/BaseRenderer.cpp.obj
+.PHONY : src/BaseRenderer.obj
+
+# target to build an object file
+src/BaseRenderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.obj
+.PHONY : src/BaseRenderer.cpp.obj
+
+src/BaseRenderer.i: src/BaseRenderer.cpp.i
+.PHONY : src/BaseRenderer.i
+
+# target to preprocess a source file
+src/BaseRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.i
+.PHONY : src/BaseRenderer.cpp.i
+
+src/BaseRenderer.s: src/BaseRenderer.cpp.s
+.PHONY : src/BaseRenderer.s
+
+# target to generate assembly for a file
+src/BaseRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/BaseRenderer.cpp.s
+.PHONY : src/BaseRenderer.cpp.s
+
 src/BossScene.obj: src/BossScene.cpp.obj
 .PHONY : src/BossScene.obj
 
@@ -189,29 +213,29 @@ src/BossScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/BossScene.cpp.s
 .PHONY : src/BossScene.cpp.s
 
-src/GameRenderer.obj: src/GameRenderer.cpp.obj
-.PHONY : src/GameRenderer.obj
+src/GameScreen.obj: src/GameScreen.cpp.obj
+.PHONY : src/GameScreen.obj
 
 # target to build an object file
-src/GameRenderer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/GameRenderer.cpp.obj
-.PHONY : src/GameRenderer.cpp.obj
+src/GameScreen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj
+.PHONY : src/GameScreen.cpp.obj
 
-src/GameRenderer.i: src/GameRenderer.cpp.i
-.PHONY : src/GameRenderer.i
+src/GameScreen.i: src/GameScreen.cpp.i
+.PHONY : src/GameScreen.i
 
 # target to preprocess a source file
-src/GameRenderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/GameRenderer.cpp.i
-.PHONY : src/GameRenderer.cpp.i
+src/GameScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/GameScreen.cpp.i
+.PHONY : src/GameScreen.cpp.i
 
-src/GameRenderer.s: src/GameRenderer.cpp.s
-.PHONY : src/GameRenderer.s
+src/GameScreen.s: src/GameScreen.cpp.s
+.PHONY : src/GameScreen.s
 
 # target to generate assembly for a file
-src/GameRenderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/GameRenderer.cpp.s
-.PHONY : src/GameRenderer.cpp.s
+src/GameScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/GameScreen.cpp.s
+.PHONY : src/GameScreen.cpp.s
 
 src/GameWindow.obj: src/GameWindow.cpp.obj
 .PHONY : src/GameWindow.obj
@@ -260,6 +284,30 @@ src/MapScreen.s: src/MapScreen.cpp.s
 src/MapScreen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/MapScreen.cpp.s
 .PHONY : src/MapScreen.cpp.s
+
+src/ShaderManager.obj: src/ShaderManager.cpp.obj
+.PHONY : src/ShaderManager.obj
+
+# target to build an object file
+src/ShaderManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/ShaderManager.cpp.obj
+.PHONY : src/ShaderManager.cpp.obj
+
+src/ShaderManager.i: src/ShaderManager.cpp.i
+.PHONY : src/ShaderManager.i
+
+# target to preprocess a source file
+src/ShaderManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/ShaderManager.cpp.i
+.PHONY : src/ShaderManager.cpp.i
+
+src/ShaderManager.s: src/ShaderManager.cpp.s
+.PHONY : src/ShaderManager.s
+
+# target to generate assembly for a file
+src/ShaderManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2DGame.dir\build.make CMakeFiles/2DGame.dir/src/ShaderManager.cpp.s
+.PHONY : src/ShaderManager.cpp.s
 
 src/StartScreen.obj: src/StartScreen.cpp.obj
 .PHONY : src/StartScreen.obj
@@ -322,18 +370,24 @@ help:
 	@echo ... 2DGame_autogen/mocs_compilation.obj
 	@echo ... 2DGame_autogen/mocs_compilation.i
 	@echo ... 2DGame_autogen/mocs_compilation.s
+	@echo ... src/BaseRenderer.obj
+	@echo ... src/BaseRenderer.i
+	@echo ... src/BaseRenderer.s
 	@echo ... src/BossScene.obj
 	@echo ... src/BossScene.i
 	@echo ... src/BossScene.s
-	@echo ... src/GameRenderer.obj
-	@echo ... src/GameRenderer.i
-	@echo ... src/GameRenderer.s
+	@echo ... src/GameScreen.obj
+	@echo ... src/GameScreen.i
+	@echo ... src/GameScreen.s
 	@echo ... src/GameWindow.obj
 	@echo ... src/GameWindow.i
 	@echo ... src/GameWindow.s
 	@echo ... src/MapScreen.obj
 	@echo ... src/MapScreen.i
 	@echo ... src/MapScreen.s
+	@echo ... src/ShaderManager.obj
+	@echo ... src/ShaderManager.i
+	@echo ... src/ShaderManager.s
 	@echo ... src/StartScreen.obj
 	@echo ... src/StartScreen.i
 	@echo ... src/StartScreen.s

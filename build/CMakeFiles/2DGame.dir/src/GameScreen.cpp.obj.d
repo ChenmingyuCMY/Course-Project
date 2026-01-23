@@ -1,8 +1,8 @@
-CMakeFiles/2DGame.dir/src/main.cpp.obj: \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\main.cpp \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameWindow.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMainWindow \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qmainwindow.h \
+CMakeFiles/2DGame.dir/src/GameScreen.cpp.obj: \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameScreen.cpp \
+ C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameScreen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtguiglobal.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qglobal.h \
@@ -156,7 +156,6 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtguiexports.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qobjectdefs.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qnamespace.h \
@@ -384,27 +383,17 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qcursor.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qbitmap.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtabwidget.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qapplication.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qbasictimer.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qeventloop.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qlocale.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication_platform.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QStackedWidget \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qstackedwidget.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qframe.h \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\StartScreen.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QPushButton \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qpushbutton.h \
  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -414,42 +403,12 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qiodevice.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qtextdocument.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qurl.h \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\MapScreen.h \
- D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QVBoxLayout \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qlayoutitem.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QGridLayout \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/qgridlayout.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QVector \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qvector.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qevent.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qeventpoint.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qvector2d.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qpointingdevice.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qinputdevice.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QList \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qlist.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qobject.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qrect.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
- D:/Qt/6.10.1/mingw_64/include/QtGui/QTransform \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
- D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen_platform.h \
- C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\GameScreen.h \
- D:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qbasictimer.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qeventloop.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\BossScene.h \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\BaseRenderer.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/QOpenGLWidget \
@@ -465,11 +424,14 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QOpenGLFunctions \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglfunctions.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglcontext.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglcontext_platform.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLShaderProgram \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglshaderprogram.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qtopenglglobal.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qtopenglexports.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qvector2d.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qvector3d.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qvector4d.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h \
@@ -478,6 +440,8 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglbuffer.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLVertexArrayObject \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglvertexarrayobject.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qobject.h \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLTexture \
  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopengltexture.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
@@ -490,6 +454,29 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qelapsedtimer.h \
  D:/Qt/6.10.1/mingw_64/include/QtGui/QKeyEvent \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qevent.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qeventpoint.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qpointingdevice.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qinputdevice.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QList \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qlist.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qrect.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QTransform \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen_platform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qlocale.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication_platform.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qset.h \
  C:\Users\chenm\Desktop\Computer\ Graphics\Course-Project\src\ShaderManager.h \
@@ -502,4 +489,30 @@ CMakeFiles/2DGame.dir/src/main.cpp.obj: \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h \
  D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
  D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
- D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qtsan_impl.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QPainter \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qpainter.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qtextoption.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qpen.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QStyleOption \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qstyleoption.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qvalidator.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qregularexpression.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qslider.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qabstractslider.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qstyle.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtabbar.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtabwidget.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qrubberband.h \
+ D:/Qt/6.10.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QMessageBox \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qmessagebox.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qdialog.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/QApplication \
+ D:/Qt/6.10.1/mingw_64/include/QtWidgets/qapplication.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QFont \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qfont.h \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/QFontDatabase \
+ D:/Qt/6.10.1/mingw_64/include/QtGui/qfontdatabase.h

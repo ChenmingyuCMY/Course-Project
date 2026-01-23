@@ -1,29 +1,17 @@
-C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UVLADIE3JM/moc_BossScene.cpp: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BossScene.h \
+C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UVLADIE3JM/moc_ShaderManager.cpp: C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
   C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/moc_predefs.h \
-  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/BaseRenderer.h \
-  C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/src/ShaderManager.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QElapsedTimer \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QList \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QMutex \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QScopedPointer \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QSet \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QSharedPointer \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
   D:/Qt/6.10.1/mingw_64/include/QtCore/QString \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/QTimer \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q20memory.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q20type_traits.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q20utility.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q23type_traits.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/q23utility.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qalgorithms.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qalloc.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qanystringview.h \
@@ -34,7 +22,6 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qatomic.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qatomic_cxx11.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qbasicatomic.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qbasictimer.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qbindingstorage.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qbytearray.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -52,16 +39,10 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qcontainerinfo.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qcontainertools_impl.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qcontiguouscache.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qdatastream.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qdebug.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qelapsedtimer.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qendian.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qeventloop.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qflags.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qfloat16.h \
@@ -73,14 +54,11 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qglobalstatic.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qhash.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qhashfunctions.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qiodevice.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qiodevicebase.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qiterable.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qiterator.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qlatin1stringview.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qline.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qlist.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qlocale.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qlogging.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qmalloc.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
@@ -91,7 +69,6 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qminmax.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qmutex.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qnamespace.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qnumeric.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qobject.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qobject_impl.h \
@@ -111,7 +88,6 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qspan.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qstdlibdetection.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qstringalgorithms.h \
@@ -138,7 +114,6 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtenvironmentvariables.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtextstream.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtformat_impl.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qtimer.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtmetamacros.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtnoop.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -150,88 +125,26 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtversionchecks.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtypeinfo.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qtypes.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qurl.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qutf8stringview.h \
-  D:/Qt/6.10.1/mingw_64/include/QtCore/qvariant.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qversiontagging.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qxptype_traits.h \
   D:/Qt/6.10.1/mingw_64/include/QtCore/qyieldcpu.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QKeyEvent \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QMatrix4x4 \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QOpenGLFunctions \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QSurfaceFormat \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QTransform \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QVector2D \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/QVector3D \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qaction.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qbitmap.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qbrush.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qcolor.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qcursor.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qevent.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qeventpoint.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qfont.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qfontinfo.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qfontmetrics.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qfontvariableaxis.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qgenericmatrix.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qicon.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qimage.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qinputdevice.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qkeysequence.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qmatrix4x4.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qopengl.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglcontext.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglcontext_platform.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglext.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qopenglfunctions.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qpaintdevice.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qpalette.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qpixelformat.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qpixmap.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qpointingdevice.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qpolygon.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qregion.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qrgb.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qrgba64.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qscreen_platform.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qsurfaceformat.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qtgui-config.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qtguiexports.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qtguiglobal.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qvector2d.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qvector3d.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qvector4d.h \
   D:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs.h \
-  D:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs_win.h \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLBuffer \
   D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLShaderProgram \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLTexture \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/QOpenGLVertexArrayObject \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglbuffer.h \
   D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglshaderprogram.h \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopengltexture.h \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qopenglvertexarrayobject.h \
   D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qtopenglexports.h \
   D:/Qt/6.10.1/mingw_64/include/QtOpenGL/qtopenglglobal.h \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/QOpenGLWidget \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qopenglwidget.h \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsexports.h \
-  D:/Qt/6.10.1/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
-  D:/Qt/6.10.1/mingw_64/include/QtWidgets/QWidget \
-  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h \
-  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
-  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-  D:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \
@@ -325,7 +238,6 @@ C:/Users/chenm/Desktop/Computer\ Graphics/Course-Project/build/2DGame_autogen/UV
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
-  D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
   D:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
