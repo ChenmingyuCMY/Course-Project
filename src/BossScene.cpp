@@ -6,40 +6,25 @@
 #include <QImage>
 #include <QLinearGradient>
 #include <QDebug>
+#include <QElapsedTimer>
 #include <cmath>
 #include <random>
 #include <ctime>
-
-// 顶点数据（矩形）
-static const GLfloat vertices[] = {
-    -0.5f, -0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f,
-     0.5f,  0.5f, 0.0f,
-    -0.5f,  0.5f, 0.0f
-};
-
-static const GLfloat texCoords[] = {
-    0.0f, 0.0f,
-    1.0f, 0.0f,
-    1.0f, 1.0f,
-    0.0f, 1.0f
-};
+#include <QFile>
 
 BossScene::BossScene(QWidget *parent)
-    : QOpenGLWidget(parent)
-    , simpleShader(nullptr)
-    , textureShader(nullptr)
+    : BaseRenderer(parent)
     , groundTexture(0)
-    , backgroundColor(0.2f, 0.3f, 0.4f)
-    , groundLevel(-0.8f)
+    , brazierTexture(0)
+    , groundLevel(-5.0f)
     , groundWidth(20.0f)
     , groundSegments(50)
     , bossLevel(1)
     , battleActive(true)
-    , cameraPosition(0.0f, 0.0f)
-    , cameraZoom(1.0f)
 {
-    setFocusPolicy(Qt::StrongFocus);
+    // 设置相机初始位置
+    setCameraPosition(QVector2D(0.0f, 0.0f));
+    setCameraZoom(1.0f);
     
     // 初始化背景层次
     backgroundLayers.resize(3);
@@ -49,6 +34,13 @@ BossScene::BossScene(QWidget *parent)
     
     midgroundLayers.resize(2);
     foregroundLayers.resize(2);
+    
+    // 初始化火把位置
+    brazierPositions.resize(4);
+    brazierPositions[0] = QVector2D(-8.0f, groundLevel);  // 左1
+    brazierPositions[1] = QVector2D(-5.0f, groundLevel);  // 左2
+    brazierPositions[2] = QVector2D(5.0f, groundLevel);   // 右1
+    brazierPositions[3] = QVector2D(8.0f, groundLevel);   // 右2
     
     // 层次颜色
     layerColors.resize(7);
@@ -61,7 +53,7 @@ BossScene::BossScene(QWidget *parent)
     layerColors[6] = QColor(120, 100, 80);    // 地面细节
     
     // 初始化玩家
-    player.position = QVector2D(-2.0f, groundLevel + 0.5f);
+    player.position = QVector2D(-2.0f, groundLevel);
     player.velocity = QVector2D(0.0f, 0.0f);
     player.isGrounded = true;
     player.facingRight = true;
@@ -71,7 +63,7 @@ BossScene::BossScene(QWidget *parent)
     player.animationTime = 0.0f;
     
     // 初始化Boss
-    boss.position = QVector2D(2.0f, groundLevel + 1.0f);
+    boss.position = QVector2D(2.0f, groundLevel);
     boss.velocity = QVector2D(0.0f, 0.0f);
     boss.isGrounded = true;
     boss.facingRight = false;
@@ -92,23 +84,15 @@ BossScene::~BossScene()
 {
     makeCurrent();
     
-    if (simpleShader) {
-        delete simpleShader;
-        simpleShader = nullptr;
-    }
-    if (textureShader) {
-        delete textureShader;
-        textureShader = nullptr;
-    }
-    
     if (groundTexture) {
         glDeleteTextures(1, &groundTexture);
         groundTexture = 0;
     }
     
-    vao.destroy();
-    vbo.destroy();
-    uvbo.destroy();
+    if (brazierTexture) {
+        glDeleteTextures(1, &brazierTexture);
+        brazierTexture = 0;
+    }
     
     // 清理骨骼内存
     for (Bone* bone : player.bones) {
@@ -116,10 +100,21 @@ BossScene::~BossScene()
     }
     player.bones.clear();
     
+    // 清理状态效果
+    for (Status* status : player.statuses) {
+        delete status;
+    }
+    player.statuses.clear();
+    
     for (Bone* bone : boss.bones) {
         delete bone;
     }
     boss.bones.clear();
+    
+    for (Status* status : boss.statuses) {
+        delete status;
+    }
+    boss.statuses.clear();
     
     doneCurrent();
 }
@@ -134,108 +129,20 @@ void BossScene::setBossLevel(int level)
 
 void BossScene::initializeGL()
 {
-    initializeOpenGLFunctions();
+    BaseRenderer::initializeGL(); // 调用基类初始化
     
-    glClearColor(backgroundColor.x(), backgroundColor.y(), backgroundColor.z(), 1.0f);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    // 创建纹理
+    createTextures();
     
-    setupShaders();
-    setupBuffers();
-    generateGroundTexture();
+    // 设置场景
     setupScene();
     
     gameTimer.start();
 }
 
-void BossScene::setupShaders()
+void BossScene::createTextures()
 {
-    // 简单颜色着色器
-    simpleShader = new QOpenGLShaderProgram(this);
-    if (!simpleShader->addShaderFromSourceCode(QOpenGLShader::Vertex,
-        "#version 330 core\n"
-        "layout(location = 0) in vec3 position;\n"
-        "uniform mat4 projection;\n"
-        "uniform mat4 model;\n"
-        "void main() {\n"
-        "    gl_Position = projection * model * vec4(position, 1.0);\n"
-        "}")) {
-        qDebug() << "Vertex shader compile error:" << simpleShader->log();
-    }
-    
-    if (!simpleShader->addShaderFromSourceCode(QOpenGLShader::Fragment,
-        "#version 330 core\n"
-        "uniform vec3 color;\n"
-        "out vec4 fragColor;\n"
-        "void main() {\n"
-        "    fragColor = vec4(color, 1.0);\n"
-        "}")) {
-        qDebug() << "Fragment shader compile error:" << simpleShader->log();
-    }
-    
-    if (!simpleShader->link()) {
-        qDebug() << "Shader link error:" << simpleShader->log();
-    }
-    
-    // 纹理着色器
-    textureShader = new QOpenGLShaderProgram(this);
-    if (!textureShader->addShaderFromSourceCode(QOpenGLShader::Vertex,
-        "#version 330 core\n"
-        "layout(location = 0) in vec3 position;\n"
-        "layout(location = 1) in vec2 texCoord;\n"
-        "uniform mat4 projection;\n"
-        "uniform mat4 model;\n"
-        "out vec2 vTexCoord;\n"
-        "void main() {\n"
-        "    gl_Position = projection * model * vec4(position, 1.0);\n"
-        "    vTexCoord = texCoord;\n"
-        "}")) {
-        qDebug() << "Texture vertex shader compile error:" << textureShader->log();
-    }
-    
-    if (!textureShader->addShaderFromSourceCode(QOpenGLShader::Fragment,
-        "#version 330 core\n"
-        "in vec2 vTexCoord;\n"
-        "uniform sampler2D textureSampler;\n"
-        "uniform vec4 tintColor;\n"
-        "out vec4 fragColor;\n"
-        "void main() {\n"
-        "    vec4 texColor = texture(textureSampler, vTexCoord);\n"
-        "    fragColor = texColor * tintColor;\n"
-        "}")) {
-        qDebug() << "Texture fragment shader compile error:" << textureShader->log();
-    }
-    
-    if (!textureShader->link()) {
-        qDebug() << "Texture shader link error:" << textureShader->log();
-    }
-}
-
-void BossScene::setupBuffers()
-{
-    vao.create();
-    vao.bind();
-    
-    // 顶点缓冲区
-    vbo.create();
-    vbo.bind();
-    vbo.allocate(vertices, sizeof(vertices));
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
-    
-    // 纹理坐标缓冲区
-    uvbo.create();
-    uvbo.bind();
-    uvbo.allocate(texCoords, sizeof(texCoords));
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
-    
-    vao.release();
-}
-
-void BossScene::generateGroundTexture()
-{
+    // 生成地面纹理
     const int width = 512;
     const int height = 128;
     QImage texture(width, height, QImage::Format_ARGB32);
@@ -270,28 +177,57 @@ void BossScene::generateGroundTexture()
     
     painter.end();
     
-    // 上传到GPU
+    // 上传地面纹理到GPU
+    createTextureFromImage(texture, groundTexture, GL_LINEAR, GL_LINEAR);
+    
+    // 加载火把纹理
+    QString brazierPath = "../assets/brazier.png";
+    if (QFile::exists(brazierPath)) {
+        QImage brazierImage(brazierPath);
+        createTextureFromImage(brazierImage, brazierTexture, GL_LINEAR, GL_LINEAR);
+        // debugTextureAlpha(brazierTexture, "brazier");
+        qDebug() << "Loaded brazier texture:" << brazierPath;
+    }
+
+    // 加载墙纹理
+    QString wallPath = "../assets/wall.jpg";
+    if (QFile::exists(wallPath)) {
+        QImage wallImage(wallPath);
+        createTextureFromImage(wallImage, wallTexture, GL_LINEAR, GL_LINEAR);
+        qDebug() << "Loaded wall texture:" << wallPath;
+    }
+}
+
+void BossScene::debugTextureAlpha(GLuint textureId, const QString& name)
+{
     makeCurrent();
     
-    if (groundTexture) {
-        glDeleteTextures(1, &groundTexture);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    
+    // 获取纹理尺寸
+    GLint width, height;
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &width);
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &height);
+    
+    // 读取纹理数据
+    QVector<unsigned char> pixels(width * height * 4);
+    glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
+    
+    // 检查alpha值
+    bool hasAlpha = false;
+    for (int i = 3; i < pixels.size(); i += 4) {
+        if (pixels[i] < 255) {
+            hasAlpha = true;
+            qDebug() << "Pixel at index" << i/4 << "has alpha:" << pixels[i];
+            break;
+        }
     }
     
-    glGenTextures(1, &groundTexture);
-    glBindTexture(GL_TEXTURE_2D, groundTexture);
-    
-    // 转换图像格式为RGBA
-    QImage glTexture = texture.convertToFormat(QImage::Format_RGBA8888);
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, glTexture.width(), glTexture.height(), 
-                 0, GL_RGBA, GL_UNSIGNED_BYTE, glTexture.bits());
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    qDebug() << "Texture" << name << "size:" << width << "x" << height 
+             << "has alpha values:" << hasAlpha;
     
     glBindTexture(GL_TEXTURE_2D, 0);
+    doneCurrent();
 }
 
 void BossScene::setupScene()
@@ -323,34 +259,29 @@ void BossScene::setupScene()
 
 void BossScene::resizeGL(int w, int h)
 {
-    glViewport(0, 0, w, h);
-    
-    // 更新投影矩阵（保持横版2D视角）
-    projectionMatrix.setToIdentity();
-    float aspectRatio = float(w) / float(h);
-    float viewHeight = 10.0f / cameraZoom;
-    float viewWidth = viewHeight * aspectRatio;
-    projectionMatrix.ortho(-viewWidth/2, viewWidth/2, -viewHeight/2, viewHeight/2, -1.0f, 1.0f);
+    BaseRenderer::resizeGL(w, h); // 调用基类方法
 }
 
 void BossScene::paintGL()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    BaseRenderer::paintGL(); // 调用基类清屏
+    
+    // 更新相机位置（跟随玩家）
+    QVector2D cameraPos = getCameraPosition();
+    cameraPos.setX(player.position.x());
+    cameraPos.setY(player.position.y() * 0.5f);
+    setCameraPosition(cameraPos);
+    
+    // 渲染场景
     renderScene();
 }
 
 void BossScene::renderScene()
 {
-    vao.bind();
-    
-    // 更新相机位置（跟随玩家）
-    cameraPosition.setX(player.position.x());
-    cameraPosition.setY(player.position.y() * 0.5f);
-    
     // 绘制背景层次
-    drawBackground();
+    // drawBackground();
     drawMidground();
-    drawForeground();
+    
     
     // 绘制地面
     drawGround();
@@ -358,125 +289,95 @@ void BossScene::renderScene()
     // 绘制角色
     drawCharacter(player);
     drawCharacter(boss);
-    
+
+    drawForeground();
+
     // 绘制碰撞体（调试用）
     drawHitboxes();
     
     // 绘制血条
     drawHealthBars();
-    
-    vao.release();
 }
 
 void BossScene::drawBackground()
 {
-    if (!simpleShader) return;
-    
-    simpleShader->bind();
-    simpleShader->setUniformValue("projection", projectionMatrix);
-    
     // 绘制远景
     for (int i = 0; i < 3; i++) {
         QMatrix4x4 model;
-        model.translate(backgroundLayers[i].x() + cameraPosition.x() * (0.2f * (i + 1)), 
-                       backgroundLayers[i].y() + cameraPosition.y() * (0.1f * (i + 1)));
+        model.translate(backgroundLayers[i].x() + getCameraPosition().x() * (0.2f * (i + 1)), 
+                       backgroundLayers[i].y() + getCameraPosition().y() * (0.1f * (i + 1)));
         model.scale(20.0f, 6.0f, 1.0f);
         
-        simpleShader->setUniformValue("model", model);
-        simpleShader->setUniformValue("color", 
-            QVector3D(layerColors[i].redF(), layerColors[i].greenF(), layerColors[i].blueF()));
-        
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        renderColoredQuad(model, 
+            QVector3D(layerColors[i].redF(), layerColors[i].greenF(), layerColors[i].blueF()),
+            1.0f, "simple");
     }
-    
-    simpleShader->release();
 }
 
 void BossScene::drawMidground()
 {
-    if (!simpleShader) return;
-    
-    simpleShader->bind();
-    simpleShader->setUniformValue("projection", projectionMatrix);
-    
-    // 绘制中景元素（山、云等）
-    for (int i = 3; i < 5; i++) {
+    if (wallTexture) {
+        // 计算纹理的宽高比
+        float aspectRatio = 2048.0f / 1024.0f;
+        
+        // 设置墙的宽度和高度
+        float wallWidth = groundWidth * 1.5f; // 比地面宽一些
+        float wallHeight = wallWidth / aspectRatio; // 保持纹理比例
+        
+        // 墙的位置（在地面上方）
+        float wallY = groundLevel + wallHeight * 0.5f - 0.5f;
+        
         QMatrix4x4 model;
-        model.translate(midgroundLayers[i-3].x() + cameraPosition.x() * (0.5f * (i-2)), 
-                       -2.0f + cameraPosition.y() * 0.2f);
-        model.scale(5.0f, 3.0f, 1.0f);
+        // 应用视差效果（
+        float parallaxFactor = 0.4f; // 中景的视差系数
+        model.translate(getCameraPosition().x() * parallaxFactor, 
+                       wallY + getCameraPosition().y() * 0.05f, -0.2f);
         
-        simpleShader->setUniformValue("model", model);
-        simpleShader->setUniformValue("color", 
-            QVector3D(layerColors[i].redF(), layerColors[i].greenF(), layerColors[i].blueF()));
+        // 设置墙的大小
+        model.scale(wallWidth, wallHeight, 1.0f);
         
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        // 渲染纹理四边形
+        renderTexturedQuad(model, wallTexture, QVector4D(1.0f, 1.0f, 1.0f, 1.0f), "texture");
     }
-    
-    simpleShader->release();
 }
 
 void BossScene::drawForeground()
 {
-    if (!simpleShader) return;
-    
-    simpleShader->bind();
-    simpleShader->setUniformValue("projection", projectionMatrix);
-    
-    // 绘制前景元素
-    for (int i = 5; i < 7 && i-5 < foregroundLayers.size(); i++) {
-        QMatrix4x4 model;
-        model.translate(foregroundLayers[i-5].x() + cameraPosition.x() * 0.8f, 
-                       groundLevel + 0.5f);
-        model.scale(1.0f, 1.5f, 1.0f);
-        
-        simpleShader->setUniformValue("model", model);
-        simpleShader->setUniformValue("color", 
-            QVector3D(layerColors[i].redF(), layerColors[i].greenF(), layerColors[i].blueF()));
-        
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    // 使用纹理绘制火把
+    if (brazierTexture) {
+        float aspectRatio = 256.0f / 128.0f; // 宽高比
+        float brazierWidth = 1.2f;
+        float brazierHeight = brazierWidth / aspectRatio;
+        float parallaxFactor = 0.8f;
+
+        for (int i = 0; i < brazierPositions.size(); i++) {
+            QMatrix4x4 model;
+            float parallaxX = brazierPositions[i].x() - getCameraPosition().x() * parallaxFactor;
+            float parallaxY = brazierPositions[i].y() + getCameraPosition().y() * 0.1f;
+            
+            model.translate(parallaxX, parallaxY, 0.2f);
+            model.scale(brazierWidth, brazierHeight, 1.0f);
+            renderTexturedQuad(model, brazierTexture, QVector4D(1.0f, 1.0f, 1.0f, 1.0f), "texture");
+        }
     }
-    
-    simpleShader->release();
 }
 
 void BossScene::drawGround()
 {
-    if (!textureShader) return;
-    
-    textureShader->bind();
-    textureShader->setUniformValue("projection", projectionMatrix);
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, groundTexture);
-    textureShader->setUniformValue("textureSampler", 0);
-    textureShader->setUniformValue("tintColor", QVector4D(1.0f, 1.0f, 1.0f, 1.0f));
-    
-    // 绘制地面
     QMatrix4x4 groundModel;
-    groundModel.translate(cameraPosition.x(), groundLevel);
+    groundModel.translate(getCameraPosition().x(), groundLevel - 0.5f);
     groundModel.scale(groundWidth, 0.5f, 1.0f);
     
-    textureShader->setUniformValue("model", groundModel);
-    
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    
-    glBindTexture(GL_TEXTURE_2D, 0);
-    textureShader->release();
+    renderTexturedQuad(groundModel, groundTexture, QVector4D(1.0f, 1.0f, 1.0f, 1.0f), "texture");
 }
 
 void BossScene::drawCharacter(const Character &character)
 {
-    if (!simpleShader) return;
-    
-    simpleShader->bind();
-    simpleShader->setUniformValue("projection", projectionMatrix);
-    
     // 绘制身体
     for (Bone* bone : character.bones) {
         QMatrix4x4 model;
         model.translate(character.position.x() + bone->position.x(), 
-                       character.position.y() + bone->position.y());
+                        character.position.y() + bone->position.y());
         if (!character.facingRight) {
             model.scale(-1.0f, 1.0f, 1.0f);
         }
@@ -484,29 +385,35 @@ void BossScene::drawCharacter(const Character &character)
         model.scale(bone->scale.x() * 0.5f, bone->scale.y() * 0.5f, 1.0f);
         
         // 设置颜色
-        QColor charColor;
+        QVector3D charColor;
         if (&character == &player) {
-            charColor = QColor(100, 150, 255); // 蓝色玩家
+            charColor = QVector3D(0.4f, 0.6f, 1.0f); // 蓝色玩家
         } else {
-            charColor = QColor(255, 100, 100); // 红色Boss
+            charColor = QVector3D(1.0f, 0.4f, 0.4f); // 红色Boss
         }
         
-        simpleShader->setUniformValue("model", model);
-        simpleShader->setUniformValue("color", 
-            QVector3D(charColor.redF(), charColor.greenF(), charColor.blueF()));
-        
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+        renderColoredQuad(model, charColor, 1.0f, "simple");
     }
     
-    simpleShader->release();
+    // 绘制状态效果
+    for (Status* status : character.statuses) {
+        if (status->bone) {
+            QMatrix4x4 model;
+            model.translate(character.position.x() + status->bone->position.x(), 
+                            character.position.y() + status->bone->position.y());
+            model.rotate(status->bone->rotation, 0.0f, 0.0f, 1.0f);
+            model.scale(0.3f, 0.3f, 1.0f);
+            
+            renderColoredQuad(model, 
+                QVector3D(status->color.redF(), status->color.greenF(), status->color.blueF()),
+                0.7f, "simple");
+        }
+    }
 }
 
 void BossScene::drawHitboxes()
 {
-    if (!battleActive || !simpleShader) return;
-    
-    simpleShader->bind();
-    simpleShader->setUniformValue("projection", projectionMatrix);
+    if (!battleActive) return;
     
     // 绘制玩家碰撞体
     for (const Hitbox& hitbox : player.hitboxes) {
@@ -516,13 +423,7 @@ void BossScene::drawHitboxes()
                           player.position.y() + hitbox.position.y());
             model.scale(hitbox.size.x(), hitbox.size.y(), 1.0f);
             
-            simpleShader->setUniformValue("model", model);
-            simpleShader->setUniformValue("color", QVector3D(1.0f, 0.0f, 0.0f)); // 红色攻击框
-            
-            // 使用线框模式
-            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+            renderColoredQuad(model, QVector3D(1.0f, 0.0f, 0.0f), 0.5f, "simple");
         }
     }
     
@@ -533,72 +434,48 @@ void BossScene::drawHitboxes()
                        boss.position.y() + hitbox.position.y());
         model.scale(hitbox.size.x(), hitbox.size.y(), 1.0f);
         
-        simpleShader->setUniformValue("model", model);
-        if (hitbox.isAttack) {
-            simpleShader->setUniformValue("color", QVector3D(1.0f, 0.5f, 0.0f)); // 橙色攻击框
-        } else {
-            simpleShader->setUniformValue("color", QVector3D(0.0f, 1.0f, 0.0f)); // 绿色受击框
-        }
-        
-        // 使用线框模式
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        QVector3D color = hitbox.isAttack ? QVector3D(1.0f, 0.5f, 0.0f) : QVector3D(0.0f, 1.0f, 0.0f);
+        renderColoredQuad(model, color, 0.5f, "simple");
     }
-    
-    simpleShader->release();
 }
 
 void BossScene::drawHealthBars()
 {
-    if (!simpleShader) return;
-    
-    simpleShader->bind();
-    simpleShader->setUniformValue("projection", projectionMatrix);
+    QVector2D cameraPos = getCameraPosition();
     
     // 玩家血条背景
     QMatrix4x4 playerHealthBg;
-    playerHealthBg.translate(cameraPosition.x() - 4.5f, cameraPosition.y() + 4.0f);
+    playerHealthBg.translate(cameraPos.x() - 4.5f, cameraPos.y() + 4.0f);
     playerHealthBg.scale(4.0f, 0.3f, 1.0f);
     
-    simpleShader->setUniformValue("model", playerHealthBg);
-    simpleShader->setUniformValue("color", QVector3D(0.2f, 0.2f, 0.2f));
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    renderColoredQuad(playerHealthBg, QVector3D(0.2f, 0.2f, 0.2f), 1.0f, "simple");
     
     // 玩家血条
     float playerHealthRatio = std::max(0.0f, player.health / player.maxHealth);
     QMatrix4x4 playerHealth;
-    playerHealth.translate(cameraPosition.x() - 4.5f + (playerHealthRatio * 2.0f - 2.0f), 
-                          cameraPosition.y() + 4.0f);
+    playerHealth.translate(cameraPos.x() - 4.5f + (playerHealthRatio * 2.0f - 2.0f), 
+                          cameraPos.y() + 4.0f);
     playerHealth.scale(playerHealthRatio * 4.0f, 0.25f, 1.0f);
     
-    simpleShader->setUniformValue("model", playerHealth);
     QVector3D healthColor(1.0f - playerHealthRatio, playerHealthRatio, 0.0f);
-    simpleShader->setUniformValue("color", healthColor);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    renderColoredQuad(playerHealth, healthColor, 1.0f, "simple");
     
     // Boss血条背景
     QMatrix4x4 bossHealthBg;
-    bossHealthBg.translate(cameraPosition.x() + 4.5f, cameraPosition.y() + 4.0f);
+    bossHealthBg.translate(cameraPos.x() + 4.5f, cameraPos.y() + 4.0f);
     bossHealthBg.scale(4.0f, 0.3f, 1.0f);
     
-    simpleShader->setUniformValue("model", bossHealthBg);
-    simpleShader->setUniformValue("color", QVector3D(0.2f, 0.2f, 0.2f));
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    renderColoredQuad(bossHealthBg, QVector3D(0.2f, 0.2f, 0.2f), 1.0f, "simple");
     
     // Boss血条
     float bossHealthRatio = std::max(0.0f, boss.health / boss.maxHealth);
     QMatrix4x4 bossHealth;
-    bossHealth.translate(cameraPosition.x() + 4.5f - (2.0f - bossHealthRatio * 2.0f), 
-                        cameraPosition.y() + 4.0f);
+    bossHealth.translate(cameraPos.x() + 4.5f - (2.0f - bossHealthRatio * 2.0f), 
+                        cameraPos.y() + 4.0f);
     bossHealth.scale(bossHealthRatio * 4.0f, 0.25f, 1.0f);
     
-    simpleShader->setUniformValue("model", bossHealth);
     healthColor = QVector3D(1.0f - bossHealthRatio, bossHealthRatio, 0.0f);
-    simpleShader->setUniformValue("color", healthColor);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    
-    simpleShader->release();
+    renderColoredQuad(bossHealth, healthColor, 1.0f, "simple");
 }
 
 void BossScene::updateGame()
@@ -641,17 +518,17 @@ void BossScene::updatePhysics(float deltaTime)
     
     // 玩家输入
     float playerSpeed = 5.0f;
-    if (pressedKeys.contains(Qt::Key_A)) {
+    if (isKeyPressed(Qt::Key_A)) {
         player.velocity.setX(-playerSpeed);
         player.facingRight = false;
-    } else if (pressedKeys.contains(Qt::Key_D)) {
+    } else if (isKeyPressed(Qt::Key_D)) {
         player.velocity.setX(playerSpeed);
         player.facingRight = true;
     } else {
         player.velocity.setX(player.velocity.x() * 0.9f); // 摩擦
     }
     
-    if (pressedKeys.contains(Qt::Key_W) && player.isGrounded) {
+    if (isKeyPressed(Qt::Key_W) && player.isGrounded) {
         player.velocity.setY(8.0f);
         player.isGrounded = false;
     }
@@ -709,7 +586,7 @@ void BossScene::checkCollisions()
     float distance = (player.position - boss.position).length();
     if (distance < 1.0f) {
         // 简单的伤害
-        if (pressedKeys.contains(Qt::Key_Space)) {
+        if (isKeyPressed(Qt::Key_Space)) {
             boss.health -= 10.0f * 0.016f; // 使用固定帧时间
         }
         
@@ -722,12 +599,13 @@ void BossScene::checkCollisions()
 
 void BossScene::keyPressEvent(QKeyEvent *event)
 {
-    pressedKeys.insert(event->key());
+    BaseRenderer::keyPressEvent(event); // 调用基类处理键盘输入
     
     // 攻击
     if (event->key() == Qt::Key_Space) {
         // 创建攻击碰撞体
         Hitbox attack;
+        attack.name = "attack";
         attack.position = QVector2D(player.facingRight ? 0.5f : -0.5f, 0.2f);
         attack.size = QVector2D(0.8f, 0.4f);
         attack.isAttack = true;
@@ -735,24 +613,19 @@ void BossScene::keyPressEvent(QKeyEvent *event)
         
         player.hitboxes.append(attack);
     }
-    
-    QOpenGLWidget::keyPressEvent(event);
 }
 
 void BossScene::keyReleaseEvent(QKeyEvent *event)
 {
-    pressedKeys.remove(event->key());
+    BaseRenderer::keyReleaseEvent(event); // 调用基类处理键盘输入
     
     // 移除攻击碰撞体
     if (event->key() == Qt::Key_Space) {
         player.hitboxes.clear();
     }
-    
-    QOpenGLWidget::keyReleaseEvent(event);
 }
 
 void BossScene::mousePressEvent(QMouseEvent *event)
 {
-    // 可以添加鼠标控制
-    QOpenGLWidget::mousePressEvent(event);
+    BaseRenderer::mousePressEvent(event); // 调用基类处理鼠标输入
 }

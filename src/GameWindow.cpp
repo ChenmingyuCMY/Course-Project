@@ -3,14 +3,14 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QMessageBox>
-#include "GameRenderer.h"
+#include "BaseRenderer.h"
 
 GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent)
     , stackedWidget(new QStackedWidget(this))
     , startScreen(new StartScreen(this))
     , mapScreen(new MapScreen(this))
-    , gameScreen(new QWidget(this))
+    , gameScreen(new GameScreen(this))
 {
     setCentralWidget(stackedWidget);
     setupUI();
@@ -37,21 +37,6 @@ void GameWindow::setupUI()
     // 设置地图界面（1）
     stackedWidget->addWidget(mapScreen);
     // 设置游戏界面（2）
-    QVBoxLayout *gameLayout = new QVBoxLayout(gameScreen);
-    
-    // 添加返回按钮
-    QPushButton *backButton = new QPushButton("Back to Menu", gameScreen);
-    connect(backButton, &QPushButton::clicked, [this]() {
-        stackedWidget->setCurrentIndex(1); // 返回地图界面
-    });
-    
-    // 添加游戏渲染器
-    GameRenderer *gameRenderer = new GameRenderer(gameScreen);
-    
-    gameLayout->addWidget(backButton);
-    gameLayout->addWidget(gameRenderer, 1);
-    
-    gameScreen->setLayout(gameLayout);
     stackedWidget->addWidget(gameScreen);
 }
 
@@ -87,36 +72,17 @@ void GameWindow::showGameLevel(int level)
 }
 void GameWindow::showBossBattle(int level)
 {
-    // 创建Boss场景
-    BossScene *bossScene = new BossScene();
-    bossScene->setBossLevel(level);
-    
-    // 创建游戏界面容器
-    QWidget *bossScreen = new QWidget(this);
-    QVBoxLayout *layout = new QVBoxLayout(bossScreen);
-    
-    // 添加UI控件
-    QPushButton *backButton = new QPushButton("Back to Map", bossScreen);
-    connect(backButton, &QPushButton::clicked, [this]() {
+    connect(gameScreen, &GameScreen::returnToMapRequested, this, &GameWindow::backToMenu);
+    connect(gameScreen, &GameScreen::gameOver, this, [this](bool victory) {
+        if (victory) {
+            QMessageBox::information(this, "Victory!", "You won the battle!");
+        } else {
+            QMessageBox::information(this, "Defeat", "You were defeated!");
+        }
         stackedWidget->setCurrentIndex(1); // 返回地图
     });
+    gameScreen->loadScene(GameSceneType::BOSS_BATTLE, level);
     
-    layout->addWidget(backButton);
-    layout->addWidget(bossScene, 1);
-    
-    // 创建新的堆叠页面
-    stackedWidget->addWidget(bossScreen);
-    stackedWidget->setCurrentWidget(bossScreen);
-    
-    // 连接Boss场景信号
-    connect(bossScene, &BossScene::battleWon, this, [this, level]() {
-        QMessageBox::information(this, "Victory!", 
-                               QString("You defeated Boss Level %1!").arg(level));
-        stackedWidget->setCurrentIndex(1); // 返回地图
-    });
-    
-    connect(bossScene, &BossScene::battleLost, this, [this]() {
-        QMessageBox::information(this, "Defeat", "You were defeated by the boss!");
-        stackedWidget->setCurrentIndex(1); // 返回地图
-    });
+    // 切换到GameScreen界面
+    stackedWidget->setCurrentIndex(2);
 }

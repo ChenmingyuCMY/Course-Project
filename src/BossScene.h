@@ -1,18 +1,7 @@
 #ifndef BOSSSCENE_H
 #define BOSSSCENE_H
 
-#include <QOpenGLWidget>
-#include <QOpenGLFunctions>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLBuffer>
-#include <QOpenGLTexture>
-#include <QOpenGLVertexArrayObject>
-#include <QTimer>
-#include <QKeyEvent>
-#include <QVector3D>
-#include <QMatrix4x4>
-#include <QVector2D>
-#include <QElapsedTimer>
+#include "BaseRenderer.h"
 
 // 简单的骨骼动画结构
 struct Bone {
@@ -55,7 +44,7 @@ struct Character {
     float animationTime;
 };
 
-class BossScene : public QOpenGLWidget, protected QOpenGLFunctions
+class BossScene : public BaseRenderer
 {
     Q_OBJECT
     
@@ -70,17 +59,19 @@ signals:
     void battleLost();
     
 protected:
-    void initializeGL() override;
+    // 重写基类方法
+    void initializeGL() override;    
     void resizeGL(int w, int h) override;
     void paintGL() override;
+    
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     
+private slots:
+    void updateGame();
+    
 private:
-    void setupShaders();
-    void setupBuffers();
-    void generateGroundTexture();
     void setupScene();
     void updatePhysics(float deltaTime);
     void checkCollisions();
@@ -93,25 +84,6 @@ private:
     void drawHitboxes();
     void drawHealthBars();
     void drawGround();
-    
-    // Shader程序
-    QOpenGLShaderProgram *simpleShader;
-    QOpenGLShaderProgram *textureShader;
-    
-    // 缓冲区
-    QOpenGLBuffer vbo;
-    QOpenGLBuffer uvbo;
-    QOpenGLVertexArrayObject vao;
-    
-    // 纹理
-    GLuint groundTexture;
-    GLuint backgroundTexture;
-    GLuint characterTexture;
-    GLuint bossTexture;
-    
-    // 场景参数
-    QVector3D backgroundColor;
-    QMatrix4x4 projectionMatrix;
     
     // 游戏对象
     Character player;
@@ -128,8 +100,10 @@ private:
     float groundWidth;
     int groundSegments;
     
-    // 输入状态
-    QSet<int> pressedKeys;
+    // 纹理
+    GLuint groundTexture;
+    GLuint brazierTexture;
+    GLuint wallTexture;
     
     // 游戏状态
     int bossLevel;
@@ -137,12 +111,13 @@ private:
     QElapsedTimer gameTimer;
     QTimer updateTimer;
     
-    // 相机参数
-    QVector2D cameraPosition;
-    float cameraZoom;
+    // 前景火把位置
+    QVector<QVector2D> brazierPositions;
     
-private slots:
-    void updateGame();
+    void createTextures();
+
+
+    void debugTextureAlpha(GLuint textureId, const QString& name);
 };
 
 #endif // BOSSSCENE_H
