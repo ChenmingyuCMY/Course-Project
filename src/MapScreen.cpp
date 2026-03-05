@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QComboBox>
+#include <QMenu>
 #include <algorithm>
 #include <math.h>
 #include <random>
@@ -15,10 +17,6 @@ using std::abs;
 
 MapScreen::MapScreen(QWidget *parent)
     : QWidget(parent)
-    , currentNodeRow(-1)
-    , currentNodeCol(-1)
-    , mapRows(7)
-    , mapCols(7)
 {
     // 设置背景色
     QPalette pal = palette();
@@ -34,37 +32,21 @@ void MapScreen::initializeMap()
 {
     // 初始化地图节点
     mapNodes.clear();
-    mapNodes.resize(mapRows);
     
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> typeDist(0, 4); // 0-4种类型
-    std::uniform_int_distribution<> rowDist(0, mapRows - 1);
-    
-    // 生成起始节点（第一列中间位置）
-    int startRow = mapRows / 2;
-    int startCol = mapCols / 2;
+    // 生成起始节点
     Node startNode;
-    startNode.type = NodeType::Start;
-    startNode.row = startRow;
-    startNode.col = startCol;
-    startNode.visited = true;
+    startNode.type = SceneType::Base;
     startNode.unlocked = true;
-    mapNodes[startRow].resize(mapCols);
-    mapNodes[startRow][startCol] = startNode;
+    startNode.center = QPoint(230,230);
+    mapNodes.push_back(startNode);
     
-    {//临时boss节点供调试、
+    {//临时节点供调试
         Node endNode;
-        endNode.type = NodeType::Boss;
-        endNode.row = startRow;
-        endNode.col = startCol + 1;
-        endNode.visited = false;
+        endNode.type = SceneType::Forest;
         endNode.unlocked = true;
-        mapNodes[startRow][startCol + 1] = endNode;
+        endNode.center = QPoint(300,300);
+        mapNodes.push_back(endNode);
     }
-
-    currentNodeRow = startRow;
-    currentNodeCol = startCol;
 }
 
 void MapScreen::setupUI()
@@ -93,25 +75,91 @@ void MapScreen::setupUI()
         "   background-color: #7777AA;"
         "}"
     );
+
+        // 难度选择区域 - 使用方法2：按钮+菜单
+    QHBoxLayout *levelSelectLayout = new QHBoxLayout();
+    levelSelectLayout->setAlignment(Qt::AlignCenter);
+    
+    // 创建难度选择按钮
+    levelButton = new QPushButton("选择难度", this);
+    levelButton->setFixedSize(150, 35);
+    levelButton->setStyleSheet(
+        "QPushButton {"
+        "   background-color: #444477;"
+        "   color: white;"
+        "   border: 2px solid #6666AA;"
+        "   border-radius: 5px;"
+        "   padding: 5px;"
+        "   font-size: 14px;"
+        "}"
+        "QPushButton:hover {"
+        "   background-color: #555599;"
+        "}"
+    );
+    
+    // 创建菜单
+    QMenu *levelMenu = new QMenu(this);
+    levelMenu->setStyleSheet(
+        "QMenu {"
+        "   background-color: #444477;"
+        "   color: white;"
+        "   border: 2px solid #6666AA;"
+        "}"
+        "QMenu::item {"
+        "   padding: 8px 20px;"
+        "   font-size: 14px;"
+        "}"
+        "QMenu::item:selected {"
+        "   background-color: #6666AA;"
+        "}"
+    );
+    
+    // 添加难度选项到菜单
+    for (int i = 1; i <= maxLevel; i++) {
+        QAction *action = levelMenu->addAction(QString("难度 %1").arg(i));
+        action->setData(i);  // 存储难度值
+        
+        // 连接动作信号
+        connect(action, &QAction::triggered, [this, action]() {
+            int level = action->data().toInt();
+            onLevelSelected(level);
+        });
+    }
+    
+    // 将菜单设置到按钮
+    levelButton->setMenu(levelMenu);
+    
+    // 将按钮添加到水平布局
+    levelSelectLayout->addWidget(levelButton);
+    
+    // 状态标签
+    levelLabel = new QLabel("当前难度: 未选择", this);
+    levelLabel->setStyleSheet("color: #AAAAFF; font-size: 14px; padding: 10px;");
+    levelLabel->setAlignment(Qt::AlignCenter);
+    
+    // 创建水平布局放置levelLabel和难度选择布局
+    QHBoxLayout *topControlsLayout = new QHBoxLayout();
+    topControlsLayout->addStretch(); // 左侧弹簧
+    topControlsLayout->addWidget(levelLabel);
+    topControlsLayout->addLayout(levelSelectLayout);
+    topControlsLayout->addStretch(); // 右侧弹簧
     
     // 地图容器
     mapWidget = new QWidget(this);
     mapWidget->setFixedSize(700, 500);
-    
-    // 状态标签
-    statusLabel = new QLabel("当前位置: 起始点", this);
-    statusLabel->setStyleSheet("color: #AAAAFF; font-size: 14px; padding: 10px;");
-    statusLabel->setAlignment(Qt::AlignCenter);
-    
+
     // 添加组件到主布局
     mainLayout->addWidget(titleLabel);
-    mainLayout->addWidget(statusLabel, 0, Qt::AlignCenter);
+    mainLayout->addLayout(topControlsLayout);
     mainLayout->addWidget(mapWidget, 0, Qt::AlignCenter);
     mainLayout->addWidget(backButton, 0, Qt::AlignCenter);
     mainLayout->addStretch();
     
     // 连接信号
     connect(backButton, &QPushButton::clicked, this, &MapScreen::backToMenu);
+    
+    // 设置初始难度
+    onLevelSelected(1);
 }
 
 void MapScreen::paintEvent(QPaintEvent *event)
@@ -143,67 +191,17 @@ void MapScreen::drawMap(QPainter &painter)
     painter.fillRect(startX, startY, mapWidth, mapHeight, QColor(30, 30, 40, 200));
     
     // 计算节点位置和大小
-    int nodeSize = 20;
-    int horizontalSpacing = mapWidth / (mapCols + 1);
-    int verticalSpacing = mapHeight / (mapRows + 1);
+    int nodeSize = 40;
     
-    // 绘制连接线
-    painter.setPen(QPen(QColor(100, 150, 200, 150), 3));
-    
-    for (int col = 0; col < mapCols - 1; col++) {
-        for (int row = 0; row < mapRows; row++) {
-            if (!mapNodes[row].isEmpty() && mapNodes[row][col].type != NodeType::Empty) {
-                Node currentNode = mapNodes[row][col];
-                
-                // 连接到右侧相邻节点
-                for (int nextRow = max(0, row-1); nextRow <= min(mapRows-1, row+1); nextRow++) {
-                    if (col + 1 < mapCols && !mapNodes[nextRow].isEmpty() && 
-                        mapNodes[nextRow][col+1].type != NodeType::Empty) {
-                        
-                        QPoint currentPos = getNodePosition(currentNode.row, currentNode.col,
-                                                           startX, startY, 
-                                                           horizontalSpacing, verticalSpacing);
-                        QPoint nextPos = getNodePosition(nextRow, col+1,
-                                                        startX, startY,
-                                                        horizontalSpacing, verticalSpacing);
-                        
-                        painter.drawLine(currentPos, nextPos);
-                    }
-                }
-            }
-        }
+    for(auto node : mapNodes) {
+        drawNode(painter, node, nodeSize);
     }
-    
-    // 绘制所有节点
-    for (int row = 0; row < mapRows; row++) {
-        for (int col = 0; col < mapCols; col++) {
-            if (!mapNodes[row].isEmpty() && mapNodes[row][col].type != NodeType::Empty) {
-                drawNode(painter, mapNodes[row][col], startX, startY, 
-                        horizontalSpacing, verticalSpacing, nodeSize);
-            }
-        }
-    }
+
 }
 
-QPoint MapScreen::getNodePosition(int row, int col, int startX, int startY, 
-                                 int hSpacing, int vSpacing)
+void MapScreen::drawNode(QPainter &painter, const Node &node, int nodeSize)
 {
-    static std::map<std::pair<int, int>, QPoint> positionCache;
-    auto key = std::make_pair(row, col);
-    
-    if (positionCache.find(key) == positionCache.end()) {
-        int baseX = startX + (col + 1) * hSpacing;
-        int baseY = startY + (row + 1) * vSpacing;
-        positionCache[key] = QPoint(baseX, baseY);
-    }
-    
-    return positionCache[key];
-}
-
-void MapScreen::drawNode(QPainter &painter, const Node &node, int startX, int startY,
-                        int hSpacing, int vSpacing, int nodeSize)
-{
-    QPoint center = getNodePosition(node.row, node.col, startX, startY, hSpacing, vSpacing);
+    QPoint center = node.center;
     QRect nodeRect(center.x() - nodeSize/2, center.y() - nodeSize/2, nodeSize, nodeSize);
     
     // 设置节点颜色和样式
@@ -211,45 +209,21 @@ void MapScreen::drawNode(QPainter &painter, const Node &node, int startX, int st
     QString nodeSymbol;
     
     switch (node.type) {
-        case NodeType::Start:
-            nodeColor = QColor(100, 200, 100); // 绿色
-            nodeSymbol = "S";
+        case SceneType::Base:
+            nodeColor = QColor(100, 200, 100); 
+            nodeSymbol = "B";
             break;
-        case NodeType::Combat:
-            nodeColor = QColor(200, 100, 100); // 红色
-            nodeSymbol = "⚔";
+        case SceneType::Forest:
+            nodeColor = QColor(200, 100, 100); 
+            nodeSymbol = "F";
             break;
-        case NodeType::Shop:
-            nodeColor = QColor(100, 100, 200); // 蓝色
-            nodeSymbol = "$";
-            break;
-        case NodeType::Tavern:
-            nodeColor = QColor(200, 200, 100); // 黄色
-            nodeSymbol = "🍺";
-            break;
-        case NodeType::Event:
-            nodeColor = QColor(200, 100, 200); // 紫色
-            nodeSymbol = "?";
-            break;
-        case NodeType::Treasure:
-            nodeColor = QColor(255, 215, 0); // 金色
-            nodeSymbol = "💎";
-            break;
-        case NodeType::Boss:
-            nodeColor = QColor(150, 50, 50); // 暗红色
-            nodeSymbol = "👑";
-            break;
-        case NodeType::Empty:
+        case SceneType::Empty:
             return; // 不绘制空节点
     }
     
     // 绘制节点背景
-    if (node.visited) {
-        // 已访问的节点
-        painter.setBrush(QBrush(nodeColor.lighter(130)));
-        painter.setPen(QPen(nodeColor.darker(150), 3));
-    } else if (node.unlocked) {
-        // 已解锁但未访问
+    if (node.unlocked) {
+        // 已解锁
         painter.setBrush(QBrush(nodeColor));
         painter.setPen(QPen(nodeColor.darker(), 3));
     } else {
@@ -260,14 +234,7 @@ void MapScreen::drawNode(QPainter &painter, const Node &node, int startX, int st
     
     // 绘制节点圆
     painter.drawEllipse(nodeRect);
-    
-    // 绘制当前节点高亮
-    if (node.row == currentNodeRow && node.col == currentNodeCol) {
-        painter.setPen(QPen(QColor(255, 255, 100), 2));
-        painter.setBrush(Qt::NoBrush);
-        painter.drawEllipse(nodeRect.adjusted(-5, -5, 5, 5));
-    }
-    
+
     // 绘制节点符号
     painter.setPen(QPen(Qt::white, 2));
     QFont symbolFont("Arial", 12, QFont::Bold);
@@ -280,120 +247,56 @@ void MapScreen::mousePressEvent(QMouseEvent *event)
     QWidget::mousePressEvent(event);
     
     // 检查是否点击了节点
-    int startX = (width() - 600) / 2;
-    int startY = 120;
     int nodeSize = 40;
-    int horizontalSpacing = 600 / (mapCols + 1);
-    int verticalSpacing = 400 / (mapRows + 1);
     
-    for (int row = 0; row < mapRows; row++) {
-        for (int col = 0; col < mapCols; col++) {
-            if (!mapNodes[row].isEmpty() && mapNodes[row][col].type != NodeType::Empty) {
-                QPoint nodeCenter = getNodePosition(row, col, startX, startY, 
-                                                   horizontalSpacing, verticalSpacing);
-                QRect nodeRect(nodeCenter.x() - nodeSize/2, nodeCenter.y() - nodeSize/2,
-                              nodeSize, nodeSize);
-                
-                if (nodeRect.contains(event->pos())) {
-                    handleNodeClick(row, col);
-                    return;
-                }
-            }
+    for (int id = 0; id < mapNodes.size(); id++) {
+        QPoint nodeCenter = mapNodes[id].center;
+        QRect nodeRect(nodeCenter.x() - nodeSize/2, nodeCenter.y() - nodeSize/2, nodeSize, nodeSize);
+            
+        if (nodeRect.contains(event->pos())) {
+            handleNodeClick(id);
+            return;
         }
     }
 }
 
-void MapScreen::handleNodeClick(int row, int col)
+void MapScreen::handleNodeClick(int id)
 {
-    if (mapNodes[row][col].unlocked && !mapNodes[row][col].visited) {
-        // 检查是否是相邻节点
-        if (abs(row - currentNodeRow) + abs(col - currentNodeCol) == 1) {
-            // 移动到新节点
-            mapNodes[currentNodeRow][currentNodeCol].visited = true;
-            currentNodeRow = row;
-            currentNodeCol = col;
-            mapNodes[row][col].visited = true;
-            
-            // 解锁相邻节点
-            unlockAdjacentNodes(row, col);
-            
-            // 更新状态显示
-            updateStatusLabel();
-            
-            // 触发节点事件
-            triggerNodeEvent(mapNodes[row][col]);
-            
-            // 重绘地图
-            update();
-        }
+    if(!mapNodes[id].unlocked){
+        return ;
     }
+    qDebug()<<"MapScreen::handleNodeClick - id:" << id;
+    // 触发节点事件
+    triggerNodeEvent(mapNodes[id]);
+    
+    update();
 }
 
-void MapScreen::unlockAdjacentNodes(int row, int col)
+void MapScreen::unlockNode(int id)
 {
-    // 解锁上下左右四个方向的节点
-    int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    
-    for (auto &dir : directions) {
-        int newRow = row + dir[0];
-        int newCol = col + dir[1];
-        
-        if (newRow >= 0 && newRow < mapRows && 
-            newCol >= 0 && newCol < mapCols &&
-            !mapNodes[newRow].isEmpty() && 
-            mapNodes[newRow][newCol].type != NodeType::Empty) {
-            
-            mapNodes[newRow][newCol].unlocked = true;
-        }
-    }
+    mapNodes[id].unlocked = true;
 }
 
-void MapScreen::updateStatusLabel()
+void MapScreen::setGameLevel(int level)
 {
-    QString statusText = "当前位置: ";
+    currentLevel = level;
+}
+
+void MapScreen::updateLevelLabel()
+{
+    QString levelText = QString("当前难度: %1").arg(currentLevel);
     
-    switch (mapNodes[currentNodeRow][currentNodeCol].type) {
-        case NodeType::Start: statusText += "起始点"; break;
-        case NodeType::Combat: statusText += "战斗关卡"; break;
-        case NodeType::Shop: statusText += "商店"; break;
-        case NodeType::Tavern: statusText += "酒馆"; break;
-        case NodeType::Event: statusText += "随机事件"; break;
-        case NodeType::Treasure: statusText += "宝藏房间"; break;
-        case NodeType::Boss: statusText += "Boss战"; break;
-    }
-    
-    statusLabel->setText(statusText);
+    levelLabel->setText(levelText);
 }
 
 void MapScreen::triggerNodeEvent(const Node &node)
 {
-    switch (node.type) {
-        case NodeType::Combat:
-            emit combatLevelSelected(node.row * mapCols + node.col + 1);
-            break;
-        case NodeType::Shop:
-            emit shopEntered();
-            break;
-        case NodeType::Tavern:
-            emit tavernEntered();
-            break;
-        case NodeType::Event:
-            emit randomEventTriggered();
-            break;
-        case NodeType::Treasure:
-            emit treasureFound();
-            break;
-        case NodeType::Boss:
-            emit bossBattleStarted(1);
-            break;
-        default:
-            break;
-    }
+    emit gameStart(node.type, currentLevel);
 }
 
-void MapScreen::resetMap()
+void MapScreen::onLevelSelected(int level)
 {
-    initializeMap();
-    updateStatusLabel();
-    update();
+    currentLevel = level;
+    levelButton->setText("选择难度");
+    levelLabel->setText(QString("当前难度: %1").arg(level));
 }

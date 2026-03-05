@@ -72,6 +72,8 @@ public:
     void setCameraZoom(float zoom);
     QVector2D getCameraPosition() const { return cameraPosition; }
     float getCameraZoom() const { return cameraZoom; }
+    int getViewportWidth() const { return viewportWidth; }
+    int getViewportHeight() const { return viewportHeight; }
 
     // 公共工具方法
     void createQuadGeometry(float width = 1.0f, float height = 1.0f);

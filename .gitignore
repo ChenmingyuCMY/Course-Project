@@ -1,4 +1,4 @@
 # Qt/C++ Computer Graphics Course Project .gitignore
 
 # === Build Outputs ===
-build/           # CMake 构建目录
+build/          # CMake 构建目录

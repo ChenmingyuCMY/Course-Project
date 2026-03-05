@@ -6,19 +6,19 @@
 #include <QFont>
 #include <QFontDatabase>
 
+#include "MapFactory.h"
+#include "GameMap.h"
+
 GameScreen::GameScreen(QWidget *parent)
     : QWidget(parent)
-    , currentSceneType(GameSceneType::NONE)
+    , currentSceneType(SceneType::Empty)
     , gamePaused(false)
     , currentLevel(1)
     , playerHealth(100.0f)
     , playerMaxHealth(100.0f)
     , playerScore(0)
     , playerCoins(0)
-    , bossScene(nullptr)
-    // , combatScene(nullptr)
-    // , shopScene(nullptr)
-    , currentSceneWidget(nullptr)
+    , currentGameScene(nullptr)
 {
     setupUI();
     setupHUD();
@@ -27,6 +27,7 @@ GameScreen::GameScreen(QWidget *parent)
     
     // 初始化HUD更新定时器
     hudUpdateTimer = new QTimer(this);
+    
     connect(hudUpdateTimer, &QTimer::timeout, this, &GameScreen::updateHUD);
     hudUpdateTimer->start(100); // 每100ms更新一次HUD
 }
@@ -107,7 +108,7 @@ void GameScreen::setupUI()
     
     connect(menuButton, &QPushButton::clicked, this, &GameScreen::onReturnToMap);
     connect(retryButton, &QPushButton::clicked, [this]() {
-        if (currentSceneType != GameSceneType::NONE) {
+        if (currentSceneType != SceneType::Empty) {
             loadScene(currentSceneType, currentLevel);
         }
     });
@@ -119,7 +120,12 @@ void GameScreen::setupUI()
     // 场景堆栈
     sceneStack = new QStackedWidget(this);
     sceneStack->setObjectName("sceneStack");
+    sceneStack->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     
+    // 默认的空页面
+    QWidget* emptyWidget = new QWidget();
+    sceneStack->addWidget(emptyWidget);
+
     // 控制面板 (底部)
     controlPanel = new QWidget(this);
     controlPanel->setObjectName("controlPanel");
@@ -133,6 +139,7 @@ void GameScreen::setupUI()
     // 组装主布局
     mainLayout->addWidget(hudWidget, 0);  // HUD
     mainLayout->addWidget(sceneStack, 1);  // 游戏场景
+    mainLayout->addWidget(controlPanel, 0);  // 控制面板
     
     setLayout(mainLayout);
 }
@@ -158,41 +165,24 @@ void GameScreen::setupControlPanel()
 void GameScreen::setupSceneManager()
 {
     // 初始化场景管理器
-    // 可以添加场景预加载等逻辑
 }
 
-void GameScreen::loadScene(GameSceneType sceneType, int level)
+void GameScreen::loadScene(SceneType sceneType, int level)
 {
-    // 卸载之前场景
-    unloadCurrentScene();
-    
     currentSceneType = sceneType;
     currentLevel = level;
     
     switch (sceneType) {
-    case GameSceneType::COMBAT:
+    case SceneType::Empty:
         break;
-        
-    case GameSceneType::BOSS_BATTLE:
-        createBossScene(level);
-        sceneLabel->setText(QString("Scene: Boss Battle (Level %1)").arg(level));
-        break;
-    case GameSceneType::SHOP:
-        break;
-        
-    case GameSceneType::MENU:
-        // 可以加载菜单场景
-        sceneLabel->setText("Scene: Menu");
-        break;
-        
     default:
         sceneLabel->setText("Scene: None");
         return;
     }
     
     // 显示场景
-    if (currentSceneWidget) {
-        sceneStack->setCurrentWidget(currentSceneWidget);
+    if (currentGameScene) {
+        sceneStack->setCurrentWidget(currentGameScene);
         emit sceneChanged(sceneType);
     }
     
@@ -204,92 +194,28 @@ void GameScreen::loadScene(GameSceneType sceneType, int level)
 
 void GameScreen::unloadCurrentScene()
 {
-    if (!currentSceneWidget) return;
+    if (!currentGameScene) return;
     
-    // 根据场景类型进行清理
-    switch (currentSceneType) {
-    case GameSceneType::BOSS_BATTLE:
-        if (bossScene) {
-            // 断开所有连接
-            bossScene->disconnect();
-            // 停止更新
-            bossScene->setVisible(false);
-        }
-        break;
-    case GameSceneType::SHOP:
-
-        break;
-    }
+    // 断开所有连接
+    currentGameScene->disconnect();
     
-    // 从堆栈中移除
-    sceneStack->removeWidget(currentSceneWidget);
-    currentSceneWidget = nullptr;
+    // 从堆栈中移除并删除
+    sceneStack->removeWidget(currentGameScene);
+    currentGameScene->deleteLater();
+    currentGameScene = nullptr;
+    
+    // 清空场景类型
+    currentSceneType = SceneType::Empty;
 }
 
-void GameScreen::createBossScene(int level)
+void GameScreen::createScene(int level, SceneType sceneType)
 {
-    if (!bossScene) {
-        bossScene = new BossScene(this);
-        
-        // 连接Boss场景信号
-        connect(bossScene, &BossScene::battleWon, this, [this, level]() {
-            int reward = level * 100;
-            playerScore += reward;
-            playerCoins += reward / 5;
-            
-            emit playerScoreChanged(playerScore);
-            emit playerCoinsChanged(playerCoins);
-            
-            QMessageBox::information(this, "Victory!", 
-                QString("Boss Defeated!\nReward: %1 points, %2 coins\nNew Level: %3")
-                .arg(reward).arg(reward / 5).arg(currentLevel));
-            
-            emit gameOver(true);
-        });
-        
-        connect(bossScene, &BossScene::battleLost, this, [this]() {
-            playerHealth -= 30.0f; // Boss战失败扣除更多生命值
-            if (playerHealth <= 0) {
-                playerHealth = 0;
-                onGameOver(false);
-            } else {
-                QMessageBox::information(this, "Defeat", 
-                    "You were defeated by the boss!");
-            }
-            emit playerHealthChanged(playerHealth);
-        });
-        
-        // connect(bossScene, &BossScene::playerHealthUpdated, this, 
-        //         [this](float health) {
-        //     playerHealth = health;
-        //     emit playerHealthChanged(playerHealth);
-        // });
-        
-        // connect(bossScene, &BossScene::scoreUpdated, this, 
-        //         [this](int score) {
-        //     playerScore += score;
-        //     emit playerScoreChanged(playerScore);
-        // });
-    }
     
-    bossScene->setBossLevel(level);
-    currentSceneWidget = bossScene;
-    sceneStack->addWidget(bossScene);
 }
 
 void GameScreen::pauseGame()
 {
     gamePaused = true;
-    
-    // 暂停当前场景
-    switch (currentSceneType) {
-    case GameSceneType::BOSS_BATTLE:
-        if (bossScene) bossScene->setUpdatesEnabled(false);
-        break;
-    case GameSceneType::COMBAT:
-        // if (combatScene) combatScene->setUpdatesEnabled(false);
-        break;
-    }
     
     emit gamePausedChanged(true);
 }
@@ -298,51 +224,45 @@ void GameScreen::resumeGame()
 {
     gamePaused = false;
     
-    // 恢复当前场景
-    switch (currentSceneType) {
-    case GameSceneType::BOSS_BATTLE:
-        if (bossScene) bossScene->setUpdatesEnabled(true);
-        break;
-    case GameSceneType::COMBAT:
-
-        break;
-    case GameSceneType::SHOP:
-        
-        break;
-    }
-    
     emit gamePausedChanged(false);
-}
-
-void GameScreen::setPlayerHealth(float health)
-{
-    playerHealth = qBound(0.0f, health, playerMaxHealth);
-    emit playerHealthChanged(playerHealth);
-}
-
-void GameScreen::setPlayerScore(int score)
-{
-    playerScore = score;
-    emit playerScoreChanged(playerScore);
-}
-
-void GameScreen::setPlayerCoins(int coins)
-{
-    playerCoins = coins;
-    emit playerCoinsChanged(playerCoins);
 }
 
 void GameScreen::updateHUD()
 {
     if (!gamePaused) {
         // 更新HUD显示
-        healthLabel->setText(QString("Health: %1/%2")
-            .arg(static_cast<int>(playerHealth))
-            .arg(static_cast<int>(playerMaxHealth)));
-        
-        scoreLabel->setText(QString("Score: %1").arg(playerScore));
-        coinsLabel->setText(QString("Coins: %1").arg(playerCoins));
+        // stoneLabel->setText();
+        // woodLabel->setText();
+        // foodLabel->setText();
     }
+}
+void GameScreen::setCurrentLevel(int level)
+{
+    currentLevel = level;
+}
+
+void GameScreen::onGameStart(SceneType type, int level)
+{
+    qDebug()<<"GameScreen::onGameStart - type:" << static_cast<int>(type) << " level:" << level;
+    setCurrentLevel(level);
+    unloadCurrentScene();
+
+    // 创建新场景并挂载
+    currentGameScene = new GameScene(level, type, this);
+    loadScene(type, level);
+
+    sceneStack->addWidget(currentGameScene);
+    sceneStack->setCurrentWidget(currentGameScene);
+    
+
+    // 启动游戏
+    currentGameScene->startGame();
+
+    // 连接游戏结束信号
+    connect(currentGameScene, &GameScene::gameFinished, this, [=](bool victory) {
+        qDebug() << "Game finished, victory:" << victory;
+        // 处理结算逻辑
+    });
 }
 
 void GameScreen::onGameOver(bool victory)
@@ -350,7 +270,7 @@ void GameScreen::onGameOver(bool victory)
     pauseGame();
     
     QString message = victory ? 
-        QString("Victory!\nFinal Score: %1\nCoins: %2").arg(playerScore).arg(playerCoins) :
+        QString("Victory!") :
         "Game Over!\nYou have been defeated.";
     
     QMessageBox msgBox(this);
@@ -365,7 +285,6 @@ void GameScreen::onGameOver(bool victory)
     msgBox.exec();
     
     if (msgBox.clickedButton() == retryButton) {
-        loadScene(currentSceneType, currentLevel);
         resumeGame();
     } else if (msgBox.clickedButton() == menuButton) {
         onReturnToMap();
@@ -378,9 +297,4 @@ void GameScreen::onReturnToMap()
 {
     unloadCurrentScene();
     emit returnToMapRequested();
-}
-
-void GameScreen::onSceneChangeRequested(GameSceneType newScene, int level)
-{
-    loadScene(newScene, level);
 }

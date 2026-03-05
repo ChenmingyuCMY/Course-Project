@@ -4,7 +4,7 @@ project(2DGame VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 设置Qt6的安装路径（根据您的实际情况修改）
+# 设置Qt6的安装路径
 set(Qt6_DIR "D:/Qt/6.10.1/mingw_64/lib/cmake/Qt6/" CACHE PATH "Path to Qt6 CMake config")
 set(CMAKE_PREFIX_PATH ${Qt6_DIR} ${CMAKE_PREFIX_PATH})
 
@@ -32,17 +32,24 @@ set(SOURCES
     src/StartScreen.cpp
     src/MapScreen.cpp
     src/GameScreen.cpp
-    src/BossScene.cpp
+    src/GameScene.cpp
+    src/GameSceneRenderer.cpp
+    src/MapFactory.cpp
+    src/GameMap.cpp
 )
 
 set(HEADERS
+    src/SceneType.h
     src/BaseRenderer.h
     src/ShaderManager.h
     src/GameWindow.h
     src/StartScreen.h
     src/MapScreen.h
     src/GameScreen.h
-    src/BossScene.h
+    src/GameScene.h
+    src/GameSceneRenderer.h
+    src/MapFactory.h
+    src/GameMap.h
 )
 
 # 添加可执行文件
@@ -72,13 +79,13 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
     $<TARGET_FILE_DIR:${PROJECT_NAME}>/shaders
 )
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders/vertex_shader.glsl
-    $<TARGET_FILE_DIR:${PROJECT_NAME}>/shaders/
-)
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders/fragment_shader.glsl
-    $<TARGET_FILE_DIR:${PROJECT_NAME}>/shaders/
-)
+# add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+#     COMMAND ${CMAKE_COMMAND} -E copy
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders/vertex_shader.glsl
+#     $<TARGET_FILE_DIR:${PROJECT_NAME}>/shaders/
+# )
+# add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+#     COMMAND ${CMAKE_COMMAND} -E copy
+#     ${CMAKE_CURRENT_SOURCE_DIR}/src/shaders/fragment_shader.glsl
+#     $<TARGET_FILE_DIR:${PROJECT_NAME}>/shaders/
+# )

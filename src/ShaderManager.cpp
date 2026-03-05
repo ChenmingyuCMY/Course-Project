@@ -92,26 +92,45 @@ void ShaderManager::initializePresetSources()
     outline.vertex = R"(#version 330 core
         layout(location = 0) in vec3 position;
         layout(location = 1) in vec2 texCoord;
+
         uniform mat4 projection;
         uniform mat4 view;
         uniform mat4 model;
-        uniform float outlineSize;
+
+        out vec2 TexCoord;
+
         void main() {
-            vec4 pos = view * model * vec4(position, 1.0);
-            vec3 normal = normalize(cross(dFdx(pos.xyz), dFdy(pos.xyz)));
-            pos.xyz += normal * outlineSize;
-            gl_Position = projection * pos;
+            gl_Position = projection * view * model * vec4(position, 1.0);
+            TexCoord = texCoord;
         }
     )";
     
     outline.fragment = R"(#version 330 core
+        in vec2 TexCoord;
+        out vec4 FragColor;
+
+        uniform vec3 color;
+        uniform float alpha;
         uniform vec3 outlineColor;
+        uniform float outlineSize;
         uniform float outlineAlpha;
-        out vec4 fragColor;
+
         void main() {
-            fragColor = vec4(outlineColor, outlineAlpha);
+            // 计算到边缘的距离
+            float distX = min(TexCoord.x, 1.0 - TexCoord.x);
+            float distY = min(TexCoord.y, 1.0 - TexCoord.y);
+            float minDist = min(distX, distY);
+            
+            // 判断是否在边框区域
+            float border = 1.0 - step(outlineSize, minDist);
+            
+            // 混合颜色
+            vec3 finalColor = mix(color * alpha, outlineColor * outlineAlpha, border);
+            
+            FragColor = vec4(finalColor, alpha);
         }
     )";
+
     m_presetSources[OutlineShader] = outline;
     
     // 粒子着色器

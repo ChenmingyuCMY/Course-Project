@@ -9,25 +9,15 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QVector>
+#include <QComboBox>
 #include <QMouseEvent>
 
-enum class NodeType {
-    Empty,
-    Start,
-    Combat,
-    Shop,
-    Tavern,
-    Event,
-    Treasure,
-    Boss
-};
+#include "SceneType.h"
 
 struct Node {
-    NodeType type = NodeType::Empty;
-    int row = -1;
-    int col = -1;
-    bool visited = false;
+    SceneType type = SceneType::Empty;
     bool unlocked = false;
+    QPoint center;
 };
 
 class MapScreen : public QWidget
@@ -39,13 +29,7 @@ public:
     
 signals:
     void backToMenu();
-    void levelSelected(int level);
-    void combatLevelSelected(int level);
-    void shopEntered();
-    void tavernEntered();
-    void randomEventTriggered();
-    void treasureFound();
-    void bossBattleStarted(int level);
+    void gameStart(SceneType type, int level);
     
 protected:
     void paintEvent(QPaintEvent *event) override;
@@ -55,28 +39,27 @@ private:
     void setupUI();
     void initializeMap();
     void drawMap(QPainter &painter);
-    void drawNode(QPainter &painter, const Node &node, int startX, int startY,
-                  int hSpacing, int vSpacing, int nodeSize);
-    QPoint getNodePosition(int row, int col, int startX, int startY,
-                          int hSpacing, int vSpacing);
-    void handleNodeClick(int row, int col);
-    void unlockAdjacentNodes(int row, int col);
-    void updateStatusLabel();
+    void drawNode(QPainter &painter, const Node &node, int nodeSize);
+    void handleNodeClick(int id);
+    void unlockNode(int id);
+    void updateLevelLabel();
     void triggerNodeEvent(const Node &node);
+    void setGameLevel(int level);
     
     QLabel *titleLabel;
-    QLabel *statusLabel;
+    QLabel *levelLabel;
     QPushButton *backButton;
+    QPushButton *levelButton;
     QWidget *mapWidget;
+    QComboBox *levelComboBox;
+
+    QVector<Node>mapNodes;
+    int currentLevel = 1;
+    int lockedLevel = 1;
+    const int maxLevel = 20;
     
-    QVector<QVector<Node>> mapNodes;
-    int currentNodeRow;
-    int currentNodeCol;
-    int mapRows;
-    int mapCols;
-    
-public slots:
-    void resetMap();
+private slots:
+    void onLevelSelected(int level);
 };
 
 #endif // MAPSCREEN_H

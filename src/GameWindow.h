@@ -21,8 +21,6 @@ public slots:
     void showSettings();
     void quitGame();
     void backToMenu();
-    void showGameLevel(int level);
-    void showBossBattle(int level);
     
 private:
     void setupUI();

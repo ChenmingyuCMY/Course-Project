@@ -8,18 +8,9 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QTimer>
-#include "BossScene.h"
-// #include "CombatScene.h" 
-// #include "ShopScene.h"  
 
-enum class GameSceneType {
-    NONE,
-    COMBAT,
-    PLATFORMER,
-    BOSS_BATTLE,
-    SHOP,
-    MENU
-};
+#include "SceneType.h"
+#include "GameScene.h"
 
 class GameScreen : public QWidget
 {
@@ -30,14 +21,14 @@ public:
     ~GameScreen();
     
     // 场景控制方法
-    void loadScene(GameSceneType sceneType, int level = 1);
+    void loadScene(SceneType sceneType, int level = 1);
     void unloadCurrentScene();
     void pauseGame();
     void resumeGame();
     
     // 游戏状态
     bool isGamePaused() const { return gamePaused; }
-    GameSceneType getCurrentSceneType() const { return currentSceneType; }
+    SceneType getCurrentSceneType() const { return currentSceneType; }
     
     // 玩家数据
     void setPlayerHealth(float health);
@@ -50,7 +41,7 @@ public:
     
 signals:
     void gamePausedChanged(bool paused);
-    void sceneChanged(GameSceneType newScene);
+    void sceneChanged(SceneType newScene);
     void playerHealthChanged(float health);
     void playerScoreChanged(int score);
     void playerCoinsChanged(int coins);
@@ -60,19 +51,18 @@ signals:
 public slots:
     void onGameOver(bool victory);
     void onReturnToMap();
+    void onGameStart(SceneType type, int level);
     
 private slots:
     void updateHUD();
-    void onSceneChangeRequested(GameSceneType newScene, int level = 1);
     
 private:
     void setupUI();
     void setupHUD();
     void setupControlPanel();
     void setupSceneManager();
-    // void createCombatScene(int level);
-    void createBossScene(int level);
-    // void createShopScene(int level);
+    void setCurrentLevel(int level);
+    void createScene(int level, SceneType sceneType);
     
     // UI元素
     QWidget *hudWidget;
@@ -87,14 +77,10 @@ private:
     QWidget *controlPanel;
     QStackedWidget *sceneStack;
     
-    // 游戏场景
-    BossScene *bossScene;
-    // CombatScene *combatScene;
-    // ShopScene *shopScene;
-    QWidget *currentSceneWidget;
+    GameScene *currentGameScene;
     
     // 游戏状态
-    GameSceneType currentSceneType;
+    SceneType currentSceneType;
     bool gamePaused;
     int currentLevel;
     
